@@ -8,6 +8,7 @@
     "test": "node --test src/__tests__/**/*.test.js"
   },
   "dependencies": {
-    "@youpi/common": "*"
+    "@youpi/common": "*",
+    "mysql2": "^3.12.0"
   }
 }

@@ -49,11 +49,12 @@ async function main() {
   const { Database } = await import('file://' + migratePath.replace(/\\/g, '/').replace('migrate.js', 'database.js'));
   const { runMigrations } = await import('file://' + migratePath.replace(/\\/g, '/'));
 
-  console.log('[+] Connecting to SQLite database & applying schemas...');
-  const db = new Database({ dbPath });
+  const dbClient = process.env.DB_CLIENT || 'mysql';
+  console.log(`[+] Connecting to ${dbClient.toUpperCase()} database (${dbClient === 'mysql' ? (process.env.MYSQL_DATABASE || 'youpi_pg') : dbPath})...`);
+  const db = new Database(dbClient === 'sqlite' ? { dbPath } : {});
   const result = runMigrations(db);
 
-  console.log(`[✓] Migrations applied successfully!`);
+  console.log(`[✓] Database ready!`);
   console.log(`[✓] Default Merchant: ${result.defaultMerchant.businessName} (${result.defaultMerchant.id})`);
   
   // Verify counts

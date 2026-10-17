@@ -30,5 +30,8 @@
     "node": ">=20.0.0"
   },
   "author": "Antigravity Systems",
-  "license": "Commercial"
+  "license": "Commercial",
+  "dependencies": {
+    "mysql2": "^3.24.6"
+  }
 }
