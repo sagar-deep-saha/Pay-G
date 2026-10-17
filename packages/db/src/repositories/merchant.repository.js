@@ -13,7 +13,8 @@ export class MerchantRepository {
    */
   create(data) {
     const id = data.id || crypto.randomUUID();
-    const branding = typeof data.branding === 'object' ? JSON.stringify(data.branding) : (data.branding || '{"primaryColor":"#2563eb","appName":"YOUPI PG","logoUrl":null}');
+    const defaultAppName = process.env.DEFAULT_APP_NAME || 'PayGate';
+    const branding = typeof data.branding === 'object' ? JSON.stringify(data.branding) : (data.branding || `{"primaryColor":"#2563eb","appName":"${defaultAppName}","logoUrl":null}`);
     const now = new Date().toISOString();
 
     const sql = `

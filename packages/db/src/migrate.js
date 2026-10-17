@@ -121,7 +121,7 @@ export function runMigrations(targetDb) {
       webhookUrl: process.env.COIN_STORE_WEBHOOK_URL || 'http://localhost:5000/api/webhook',
       webhookSecret: process.env.COIN_STORE_WEBHOOK_SECRET || 'merchant_webhook_secret_for_wallet_store',
       branding: {
-        appName: 'YOUPI PG',
+        appName: process.env.DEFAULT_APP_NAME || 'PayGate',
         primaryColor: '#2563eb',
         logoUrl: null
       }

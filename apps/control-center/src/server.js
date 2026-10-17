@@ -166,7 +166,9 @@ export class ControlCenterServer {
           'Content-Type': 'text/html; charset=utf-8',
           'Cache-Control': 'no-cache'
         });
-        res.end(this.template);
+        let html = this.template;
+        try { html = fs.readFileSync(this.htmlTemplatePath, 'utf8'); } catch {}
+        res.end(html);
         return;
       }
 

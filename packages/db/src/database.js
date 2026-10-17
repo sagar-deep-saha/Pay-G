@@ -57,8 +57,8 @@ export class Database {
   constructor(options = {}) {
     this.options = options;
 
-    // In-memory option is explicitly used by unit tests for lightning-fast isolation
-    if (options.inMemory || options.client === 'sqlite' || (process.env.DB_CLIENT === 'sqlite' && !options.client)) {
+    // In-memory or specific dbPath is explicitly used for SQLite
+    if (options.inMemory || options.dbPath || options.client === 'sqlite' || (process.env.DB_CLIENT === 'sqlite' && !options.client)) {
       this.client = 'sqlite';
       this.initSqlite(options);
     } else {
