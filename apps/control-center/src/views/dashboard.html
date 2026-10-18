@@ -33,11 +33,13 @@
     .brand { font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
     .header-actions { display: flex; gap: 0.75rem; }
 
-    .btn { padding: 0.5rem 1rem; border-radius: 0.5rem; border: none; font-weight: 700; cursor: pointer; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
-    .btn-success { background: #047857; color: #fff; }
-    .btn-danger { background: #b91c1c; color: #fff; }
-    .btn-secondary { background: var(--border); color: #fff; }
-    .btn:hover { filter: brightness(1.1); }
+    .btn { padding: 0.45rem 0.95rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; cursor: pointer; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card-bg); color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .btn-success { background: #15803d; border-color: #166534; color: #fff; }
+    .btn-danger { background: #ed1c24; border-color: #ed1c24; color: #fff; }
+    .btn-secondary { background: #1e293b; border-color: var(--border); color: #cbd5e1; }
+    .btn:hover { background: #334155; border-color: #64748b; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+    .btn-danger:hover { background: #c81018; border-color: #c81018; }
+    .btn-success:hover { background: #16a34a; border-color: #15803d; }
 
     .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.5rem; }
     .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
@@ -76,11 +78,11 @@
 
 <header>
   <div class="brand">
-    <span>🛡️ PayGate Control Center</span>
+    <span>️ PayGate Control Center</span>
     <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 400;">| Local Native Process Supervisor (Port 8090)</span>
   </div>
   <div class="header-actions">
-    <a href="http://localhost:6001" class="btn btn-primary" style="background:#2563eb; color:#fff; text-decoration:none;">🏪 Open Unified Merchant Panel ↗</a>
+    <a href="http://localhost:6001" class="btn btn-primary" style="background:#2563eb; color:#fff; text-decoration:none;"> Open Unified Merchant Panel ↗</a>
     <button class="btn btn-success" onclick="startAllServices()">▶ Start All Services</button>
     <button class="btn btn-danger" onclick="stopAllServices()">⏹ Stop All Services</button>
   </div>
@@ -88,7 +90,7 @@
 
 <div style="background:rgba(37,99,235,0.15); border:1px solid #3b82f6; border-radius:0.75rem; padding:0.85rem 1.25rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
   <div>
-    <strong style="color:#60a5fa;">💡 Control Center is now integrated directly inside the Merchant Panel!</strong>
+    <strong style="color:#60a5fa;"> Control Center is now integrated directly inside the Merchant Panel!</strong>
     <p style="margin:0.25rem 0 0 0; font-size:0.82rem; color:#cbd5e1;">You can manage all host processes, live logs, YOUPI Store toggle, and gateway operations in one place at <code>http://localhost:6001</code>.</p>
   </div>
   <a href="http://localhost:6001" class="btn" style="background:#2563eb; color:#fff; text-decoration:none; padding:0.5rem 1rem;">Go to Merchant Panel &rsaquo;</a>

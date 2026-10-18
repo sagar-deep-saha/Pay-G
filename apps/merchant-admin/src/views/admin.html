@@ -9,8 +9,8 @@
     :root,
     [data-theme="light"] {
       --theme: light;
-      --bg: #f8fafc;
-      --bg-header: #ffffff;
+      --bg: #eceff1;
+      --bg-header: #1e293b;
       --bg-nav: #ffffff;
       --bg-subnav: #f1f5f9;
       --bg-card: #ffffff;
@@ -18,185 +18,203 @@
       --bg-box: #ffffff;
       --bg-elevated: #f1f5f9;
       --bg-slot: #ffffff;
-      --bg-table-th: #f8fafc;
+      --bg-table-th: #f1f5f9;
       --bg-input: #ffffff;
 
-      --border: #e2e8f0;
-      --border-focus: #2563eb;
-      --border-subtle: #edf2f7;
-      --border-hover: #cbd5e1;
+      --border: #cbd5e1;
+      --border-focus: #ed1c24;
+      --border-subtle: #e2e8f0;
+      --border-hover: #94a3b8;
 
       --text: #0f172a;
-      --text-muted: #64748b;
-      --text-dim: #94a3b8;
+      --text-muted: #475569;
+      --text-dim: #64748b;
       --text-heading: #0f172a;
 
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --primary-glow: rgba(37, 99, 235, 0.2);
-      --primary-light: rgba(37, 99, 235, 0.08);
+      --primary: #ed1c24;
+      --primary-hover: #c81018;
+      --primary-glow: none;
+      --primary-light: #eff6ff;
 
-      --success: #059669;
-      --success-glow: rgba(5, 150, 105, 0.2);
-      --danger: #dc2626;
-      --danger-glow: rgba(220, 38, 38, 0.2);
-      --warning: #d97706;
-      --warning-glow: rgba(217, 119, 6, 0.2);
-      --info: #0284c7;
-      --info-glow: rgba(2, 132, 199, 0.2);
+      --success: #15803d;
+      --success-glow: none;
+      --danger: #b91c1c;
+      --danger-glow: none;
+      --warning: #b45309;
+      --warning-glow: none;
+      --info: #0369a1;
+      --info-glow: none;
 
-      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
-      --card-shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      --card-shadow: none;
+      --card-shadow-hover: none;
 
-      --badge-success-bg: #ecfdf5;
-      --badge-success-text: #065f46;
-      --badge-success-border: #a7f3d0;
-      --badge-danger-bg: #fef2f2;
-      --badge-danger-text: #991b1b;
-      --badge-danger-border: #fecaca;
-      --badge-warning-bg: #fffbeb;
-      --badge-warning-text: #92400e;
-      --badge-warning-border: #fde68a;
-      --badge-info-bg: #eff6ff;
-      --badge-info-text: #1e40af;
-      --badge-info-border: #bfdbfe;
+      --badge-success-bg: #dcfce7;
+      --badge-success-text: #14532d;
+      --badge-success-border: #86efac;
+      --badge-danger-bg: #fee2e2;
+      --badge-danger-text: #7f1d1d;
+      --badge-danger-border: #fca5a5;
+      --badge-warning-bg: #fef3c7;
+      --badge-warning-text: #78350f;
+      --badge-warning-border: #fcd34d;
+      --badge-info-bg: #e0f2fe;
+      --badge-info-text: #0369a1;
+      --badge-info-border: #7dd3fc;
       --badge-neutral-bg: #f1f5f9;
-      --badge-neutral-text: #475569;
-      --badge-neutral-border: #e2e8f0;
+      --badge-neutral-text: #334155;
+      --badge-neutral-border: #cbd5e1;
 
       --btn-sec-bg: #ffffff;
-      --btn-sec-text: #334155;
-      --btn-sec-border: #cbd5e1;
+      --btn-sec-text: #1e293b;
+      --btn-sec-border: #94a3b8;
       --btn-sec-hover-bg: #f1f5f9;
       --btn-sec-hover-text: #0f172a;
 
       --tr-hover: #f8fafc;
-      --focus-ring: rgba(37, 99, 235, 0.15);
+      --focus-ring: none;
 
-      --kpi-vol-color: #059669;
-      --kpi-success-color: #2563eb;
-      --kpi-queue-color: #d97706;
-      --kpi-pending-color: #dc2626;
+      --kpi-vol-color: #ed1c24;
+      --kpi-success-color: #ed1c24;
+      --kpi-queue-color: #b45309;
+      --kpi-pending-color: #b91c1c;
 
-      --header-bg: #ffffff;
-      --header-border: #e2e8f0;
-      --header-title: #0f172a;
+      --header-bg: #1e293b;
+      --header-border: #0f172a;
+      --header-title: #ffffff;
       --nav-bg: #ffffff;
-      --nav-border: #e2e8f0;
+      --nav-border: #cbd5e1;
       --subnav-bg: #f8fafc;
-      --subnav-border: #e2e8f0;
+      --subnav-border: #cbd5e1;
       --pill-bg: #ffffff;
-      --pill-text: #475569;
+      --pill-text: #334155;
       --pill-border: #cbd5e1;
+      --pill-hover-bg: #e2e8f0;
+      --pill-hover-text: #0f172a;
+      --pill-hover-border: #94a3b8;
+      --nav-hover-bg: #f1f5f9;
+      --nav-hover-text: #0f172a;
+
+      --modal-bg: #ffffff;
+      --modal-text: #0f172a;
+      --modal-border: #cbd5e1;
+      --modal-header-border: #e2e8f0;
+      --modal-input-bg: #ffffff;
+      --modal-input-border: #cbd5e1;
+      --modal-input-text: #0f172a;
+      --modal-muted: #64748b;
     }
 
     [data-theme="dark"] {
       --theme: dark;
-      --bg: #090d16;
-      --bg-header: #070a12;
-      --bg-nav: #0b1120;
-      --bg-subnav: rgba(15, 23, 42, 0.85);
-      --bg-card: #0f172a;
-      --bg-surface: #131d35;
-      --bg-box: #0b1120;
+      --bg: #0f172a;
+      --bg-header: #020617;
+      --bg-nav: #0b1329;
+      --bg-subnav: #0f172a;
+      --bg-card: #131d35;
+      --bg-surface: #0b1329;
+      --bg-box: #0b1329;
       --bg-elevated: #1e293b;
-      --bg-slot: #070c17;
-      --bg-table-th: #070c17;
-      --bg-input: #090d16;
+      --bg-slot: #0b1329;
+      --bg-table-th: #0b1329;
+      --bg-input: #0b1329;
 
-      --border: #1e293b;
-      --border-focus: #38bdf8;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-hover: #334155;
+      --border: #334155;
+      --border-focus: #ed1c24;
+      --border-subtle: #1e293b;
+      --border-hover: #475569;
 
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --text-heading: #ffffff;
 
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --primary-glow: rgba(37, 99, 235, 0.25);
-      --primary-light: rgba(56, 189, 248, 0.08);
+      --primary: #ed1c24;
+      --primary-hover: #c81018;
+      --primary-glow: none;
+      --primary-light: rgba(56, 189, 248, 0.1);
 
-      --success: #10b981;
-      --success-glow: rgba(16, 185, 129, 0.2);
-      --danger: #ef4444;
-      --danger-glow: rgba(239, 68, 68, 0.2);
-      --warning: #f59e0b;
-      --warning-glow: rgba(245, 158, 11, 0.2);
+      --success: #34d399;
+      --success-glow: none;
+      --danger: #f87171;
+      --danger-glow: none;
+      --warning: #fbbf24;
+      --warning-glow: none;
       --info: #38bdf8;
-      --info-glow: rgba(56, 189, 248, 0.2);
+      --info-glow: none;
 
-      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
-      --card-shadow-hover: 0 14px 28px rgba(0, 0, 0, 0.65);
+      --card-shadow: none;
+      --card-shadow-hover: none;
 
-      --badge-success-bg: rgba(16, 185, 129, 0.18);
+      --badge-success-bg: rgba(52, 211, 153, 0.15);
       --badge-success-text: #34d399;
-      --badge-success-border: rgba(16, 185, 129, 0.35);
-      --badge-danger-bg: rgba(239, 68, 68, 0.18);
+      --badge-success-border: rgba(52, 211, 153, 0.4);
+      --badge-danger-bg: rgba(248, 113, 113, 0.15);
       --badge-danger-text: #f87171;
-      --badge-danger-border: rgba(239, 68, 68, 0.35);
-      --badge-warning-bg: rgba(245, 158, 11, 0.18);
+      --badge-danger-border: rgba(248, 113, 113, 0.4);
+      --badge-warning-bg: rgba(251, 191, 36, 0.15);
       --badge-warning-text: #fbbf24;
-      --badge-warning-border: rgba(245, 158, 11, 0.35);
-      --badge-info-bg: rgba(56, 189, 248, 0.18);
+      --badge-warning-border: rgba(251, 191, 36, 0.4);
+      --badge-info-bg: rgba(56, 189, 248, 0.15);
       --badge-info-text: #38bdf8;
-      --badge-info-border: rgba(56, 189, 248, 0.35);
+      --badge-info-border: rgba(56, 189, 248, 0.4);
       --badge-neutral-bg: #1e293b;
       --badge-neutral-text: #94a3b8;
       --badge-neutral-border: #334155;
 
       --btn-sec-bg: #1e293b;
-      --btn-sec-text: #e2e8f0;
-      --btn-sec-border: #334155;
+      --btn-sec-text: #f1f5f9;
+      --btn-sec-border: #475569;
       --btn-sec-hover-bg: #334155;
       --btn-sec-hover-text: #ffffff;
 
-      --tr-hover: rgba(255, 255, 255, 0.02);
-      --focus-ring: rgba(56, 189, 248, 0.2);
+      --tr-hover: rgba(255, 255, 255, 0.04);
+      --focus-ring: none;
 
-      --kpi-vol-color: #34d399;
-      --kpi-success-color: #38bdf8;
+      --kpi-vol-color: #ed1c24;
+      --kpi-success-color: #ed1c24;
       --kpi-queue-color: #fbbf24;
       --kpi-pending-color: #f87171;
 
-      --header-bg: #070a12;
-      --header-border: var(--border);
+      --header-bg: #020617;
+      --header-border: #1e293b;
       --header-title: #ffffff;
-      --nav-bg: #0b1120;
-      --nav-border: var(--border);
-      --subnav-bg: rgba(15, 23, 42, 0.7);
-      --subnav-border: var(--border);
-      --pill-bg: #090d16;
-      --pill-text: var(--text-muted);
-      --pill-border: var(--border);
+      --nav-bg: #0b1329;
+      --nav-border: #334155;
+      --subnav-bg: #0f172a;
+      --subnav-border: #334155;
+      --pill-bg: #0b1329;
+      --pill-text: #cbd5e1;
+      --pill-border: #334155;
+      --pill-hover-bg: #1e293b;
+      --pill-hover-text: #ffffff;
+      --pill-hover-border: #475569;
+      --nav-hover-bg: #1e293b;
+      --nav-hover-text: #ffffff;
+
+      --modal-bg: #0f172a;
+      --modal-text: #f8fafc;
+      --modal-border: #334155;
+      --modal-header-border: #1e293b;
+      --modal-input-bg: #020617;
+      --modal-input-border: #334155;
+      --modal-input-text: #f8fafc;
+      --modal-muted: #94a3b8;
     }
 
-    * {
+    /* PROFESSIONAL WORKSTATION DESIGN SYSTEM: CLEAN #ed1c24 PRIMARY ACCENT, HARMONIOUS 6PX BORDER RADIUS */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: none !important;
+      animation: none !important;
+      box-shadow: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    body,
-    header,
-    nav,
-    .card,
-    .kpi-box,
-    table,
-    th,
-    td,
-    input,
-    select,
-    textarea,
-    .sub-nav-pill,
-    .store-switch-badge,
-    .settings-group-box,
-    .slot-card,
-    .theme-mode-pill {
-      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    *:hover {
+      transform: none !important;
+      filter: none !important;
     }
 
     body {
@@ -205,99 +223,127 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
+      font-size: 13px;
+      line-height: 1.45;
     }
 
-    /* Top Sticky Header */
+    /* TOP ENTERPRISE HEADER */
     header {
       background: var(--header-bg);
       border-bottom: 1px solid var(--header-border);
-      padding: 0.85rem 1.75rem;
+      padding: 0.45rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(12px);
+      height: 44px;
     }
 
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.65rem;
     }
 
     .brand-title {
-      font-size: 1.25rem;
-      font-weight: 900;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--header-title);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .brand-badge {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
-      border-radius: 9999px;
-      background: var(--badge-info-bg);
-      color: var(--badge-info-text);
-      border: 1px solid var(--badge-info-border);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: #334155;
+      color: #cbd5e1;
+      border: 1px solid #475569;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .header-quick-stats {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    /* Real Light / Dark Mode Toggle Pill */
-    .theme-mode-pill {
+    .header-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
+      padding: 0.28rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
       cursor: pointer;
-      border: 1px solid var(--border);
-      background: var(--bg-surface);
-      color: var(--text);
-      user-select: none;
-    }
-
-    .theme-mode-pill:hover {
-      border-color: var(--border-hover);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      transform: translateY(-1px);
-    }
-
-    /* Store Port 5000 Switch Badge */
-    .store-switch-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
       border: 1px solid var(--border);
       background: var(--bg-card);
       color: var(--text);
       user-select: none;
+      font-family: inherit;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-btn:hover {
+      background: var(--pill-hover-bg);
+      border-color: var(--border-hover);
+      color: var(--pill-hover-text);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-mode-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      user-select: none;
+      font-family: inherit;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .theme-mode-pill:hover {
+      background: var(--pill-hover-bg);
+      border-color: var(--border-hover);
+      color: var(--pill-hover-text);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .store-switch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      font-family: inherit;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .store-switch-badge:hover {
-      filter: brightness(1.08);
+      background: var(--pill-hover-bg);
+      border-color: var(--border-hover);
+      color: var(--pill-hover-text);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     }
 
     .store-switch-badge.is-online {
@@ -307,283 +353,247 @@
     }
 
     .store-switch-badge.is-offline {
-      background: var(--badge-danger-bg);
-      border-color: var(--badge-danger-border);
-      color: var(--badge-danger-text);
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: var(--text-muted);
     }
 
-    /* Live Pulse */
-    .live-pulse-badge {
+    .header-stat-chip {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: var(--badge-success-bg);
-      border: 1px solid var(--badge-success-border);
-      color: var(--badge-success-text);
-      padding: 0.3rem 0.65rem;
-      border-radius: 9999px;
-      font-size: 0.73rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      user-select: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-stat-chip .stat-label {
+      color: var(--text-muted);
       font-weight: 700;
     }
 
+    .live-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.28rem 0.65rem;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
     .pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulseAnim 2s infinite ease-in-out;
+      display: none;
     }
 
-    @keyframes pulseAnim {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.4;
-        transform: scale(0.85);
-      }
-    }
-
-    /* Primary Navigation Bar (3 Sections) */
+    /* PRIMARY WORKSTATION TAB STRIP */
     .main-nav-bar {
       background: var(--nav-bg);
       border-bottom: 1px solid var(--nav-border);
       display: flex;
-      gap: 0.5rem;
-      padding: 0 1.75rem;
-      overflow-x: auto;
+      padding: 0 1.25rem;
       position: sticky;
-      top: 57px;
+      top: 44px;
       z-index: 999;
+      gap: 0;
     }
 
     .main-nav-btn {
-      padding: 0.95rem 1.4rem;
+      padding: 0.65rem 1.15rem;
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
+      border-bottom: none;
       background: transparent;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-muted);
-      border-bottom: 3px solid transparent;
       white-space: nowrap;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.4rem;
+      border-radius: 0;
+      margin-bottom: -1px;
     }
 
     .main-nav-btn:hover {
-      color: var(--text);
-      background: var(--primary-light);
+      color: var(--nav-hover-text);
+      background: var(--nav-hover-bg);
     }
 
     .main-nav-btn.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      background: var(--primary-light);
+      color: var(--text-heading);
+      background: var(--bg);
+      border-color: var(--nav-border);
+      border-top: 3px solid var(--primary);
+      border-bottom: 1px solid var(--bg);
     }
 
-    [data-theme="dark"] .main-nav-btn.active {
-      color: #38bdf8;
-      border-bottom-color: #38bdf8;
-      background: rgba(56, 189, 248, 0.08);
-    }
-
-    /* Secondary Sub-Nav Pills */
+    /* SECONDARY WORKBENCH TOOLBAR */
     .sub-nav-bar {
       background: var(--subnav-bg);
       border-bottom: 1px solid var(--subnav-border);
       display: flex;
-      gap: 0.5rem;
-      padding: 0.65rem 1.75rem;
+      gap: 0.45rem;
+      padding: 0.45rem 1.25rem;
       overflow-x: auto;
     }
 
     .sub-nav-pill {
-      padding: 0.45rem 1rem;
+      padding: 0.35rem 0.85rem;
       cursor: pointer;
       border: 1px solid var(--pill-border);
       background: var(--pill-bg);
-      border-radius: 9999px;
-      font-weight: 700;
+      border-radius: 8px;
+      font-weight: 600;
       color: var(--pill-text);
       white-space: nowrap;
-      transition: all 0.18s;
       font-size: 0.8rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.35rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .sub-nav-pill:hover {
-      color: var(--text);
-      border-color: var(--border-hover);
+      color: var(--pill-hover-text);
+      background: var(--pill-hover-bg);
+      border-color: var(--pill-hover-border);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     }
 
     .sub-nav-pill.active {
-      color: #ffffff;
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 2px 10px var(--primary-glow);
+      color: #ffffff !important;
+      background: var(--primary) !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 1px 3px rgba(237, 28, 36, 0.3);
     }
 
     main {
-      padding: 1.75rem;
-      max-width: 1480px;
+      padding: 1.25rem;
+      max-width: 1540px;
       width: 100%;
       margin: 0 auto;
       flex: 1;
     }
 
-    /* KPI Summary Row */
+    /* HIGH DENSITY KPI TILES */
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.1rem;
-      margin-bottom: 1.5rem;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .kpi-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 0.85rem;
-      padding: 1.25rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .kpi-box:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--card-shadow-hover);
-      border-color: var(--border-hover);
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
     }
 
     .kpi-title {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
     .kpi-value {
-      font-size: 1.95rem;
-      font-weight: 900;
-      margin-top: 0.35rem;
-      letter-spacing: -0.02em;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+      font-family: Consolas, "SF Mono", Monaco, "Courier New", monospace;
     }
 
-    /* Cards */
+    /* SOLID RECTANGULAR CARDS */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 0.85rem;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--card-shadow);
+      border-radius: 8px;
+      padding: 1.15rem;
+      margin-bottom: 1rem;
     }
 
     .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-subtle);
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
 
     .card-heading {
-      font-size: 1.12rem;
-      font-weight: 800;
+      font-size: 0.95rem;
+      font-weight: 700;
       color: var(--text-heading);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      letter-spacing: 0.01em;
     }
 
     .card-subtext {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: 0.25rem;
-      line-height: 1.5;
+      margin-top: 0.15rem;
     }
 
-    /* Group Settings Box (Store Settings Panels) */
     .settings-group-box {
       background: var(--bg-surface);
       border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .group-box-title {
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--primary);
-      letter-spacing: 0.05em;
+      border-radius: 6px;
+      padding: 1rem;
       margin-bottom: 1rem;
     }
 
-    [data-theme="dark"] .group-box-title {
-      color: #60a5fa;
+    .group-box-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    /* Selling Mode Cards */
-    .selling-mode-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .selling-mode-card:hover {
-      border-color: var(--border-hover);
-    }
-
-    .selling-mode-card.mode-selected-online {
-      border: 2px solid var(--primary);
-      background: var(--primary-light);
-    }
-
-    .selling-mode-card.mode-selected-offline {
-      border: 2px solid var(--warning);
-      background: var(--warning-bg);
-    }
-
-    /* Tables */
+    /* COMPACT DATA TABLES */
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
     }
 
     th {
       text-align: left;
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
       background: var(--bg-table-th);
       color: var(--text-muted);
-      font-weight: 800;
+      font-weight: 700;
       border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border-subtle);
       text-transform: uppercase;
-      font-size: 0.73rem;
+      font-size: 0.68rem;
       letter-spacing: 0.05em;
     }
 
     td {
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid var(--border);
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
       color: var(--text);
       vertical-align: middle;
     }
@@ -592,384 +602,203 @@
       background: var(--tr-hover);
     }
 
-    /* Badges */
+    /* RECTANGULAR ENTERPRISE STATUS BADGES */
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
+      gap: 0.25rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.68rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border: 1px solid transparent;
+      font-family: Consolas, "SF Mono", monospace;
     }
 
     .badge-success {
       background: var(--badge-success-bg);
       color: var(--badge-success-text);
-      border: 1px solid var(--badge-success-border);
+      border-color: var(--badge-success-border);
     }
 
     .badge-danger {
       background: var(--badge-danger-bg);
       color: var(--badge-danger-text);
-      border: 1px solid var(--badge-danger-border);
+      border-color: var(--badge-danger-border);
     }
 
     .badge-warning {
       background: var(--badge-warning-bg);
       color: var(--badge-warning-text);
-      border: 1px solid var(--badge-warning-border);
+      border-color: var(--badge-warning-border);
     }
 
     .badge-info {
       background: var(--badge-info-bg);
       color: var(--badge-info-text);
-      border: 1px solid var(--badge-info-border);
+      border-color: var(--badge-info-border);
     }
 
     .badge-neutral {
       background: var(--badge-neutral-bg);
       color: var(--badge-neutral-text);
-      border: 1px solid var(--border);
+      border-color: var(--badge-neutral-border);
     }
 
-    /* Buttons */
+    /* ENTERPRISE BOOKMARK-STYLE BUTTON SYSTEM */
     .btn {
-      padding: 0.52rem 1.05rem;
-      border-radius: 0.5rem;
-      border: 1px solid transparent;
-      font-weight: 700;
+      padding: 0.45rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-weight: 600;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
       text-decoration: none;
-      transition: all 0.18s ease-in-out;
       user-select: none;
+      background: var(--bg-card);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+      line-height: 1.35;
+    }
+
+    .btn:hover {
+      background: var(--pill-hover-bg);
+      border-color: var(--border-hover);
+      color: var(--pill-hover-text);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:active {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     }
 
     .btn-primary {
-      background: #2563eb;
-      color: #fff;
-      border-color: #3b82f6;
+      background: #ed1c24 !important;
+      border-color: #ed1c24 !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(237, 28, 36, 0.25), 0 1px 2px rgba(0, 0, 0, 0.08);
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
-      box-shadow: 0 4px 14px var(--primary-glow);
-    }
-
-    .btn-success {
-      background: #059669;
-      color: #fff;
-      border-color: #10b981;
-    }
-
-    .btn-success:hover {
-      background: #047857;
-      box-shadow: 0 4px 14px var(--success-glow);
-    }
-
-    .btn-danger {
-      background: #dc2626;
-      color: #fff;
-      border-color: #ef4444;
-    }
-
-    .btn-danger:hover {
-      background: #b91c1c;
-      box-shadow: 0 4px 14px var(--danger-glow);
+      background: #c81018 !important;
+      border-color: #c81018 !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 5px rgba(237, 28, 36, 0.35);
     }
 
     .btn-secondary {
       background: var(--btn-sec-bg);
+      border-color: var(--btn-sec-border);
       color: var(--btn-sec-text);
-      border: 1px solid var(--btn-sec-border);
     }
 
     .btn-secondary:hover {
       background: var(--btn-sec-hover-bg);
-      color: var(--btn-sec-hover-text);
+      border-color: var(--border-hover);
     }
 
-    .btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
+    .btn-success {
+      background: #15803d !important;
+      border-color: #166534 !important;
+      color: #ffffff !important;
+      box-shadow: 0 1px 3px rgba(21, 128, 61, 0.25);
     }
 
-    /* Forms */
-    input[type="text"],
-    input[type="url"],
-    input[type="password"],
-    textarea,
-    select {
-      background: var(--bg-input);
+    .btn-success:hover {
+      background: #16a34a !important;
+      border-color: #15803d !important;
+    }
+
+    .btn-danger {
+      background: #b91c1c !important;
+      border-color: #991b1b !important;
+      color: #ffffff !important;
+      box-shadow: 0 1px 3px rgba(185, 28, 28, 0.25);
+    }
+
+    .btn-danger:hover {
+      background: #dc2626 !important;
+      border-color: #b91c1c !important;
+    }
+
+    /* COMPACT FORM CONTROLS */
+    input, select, textarea {
       border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      color: var(--text);
-      font-size: 0.88rem;
-      padding: 0.65rem 0.85rem;
-      transition: border-color 0.2s, box-shadow 0.2s, background-color 0.25s;
-    }
-
-    input[type="text"]:focus,
-    input[type="url"]:focus,
-    input[type="password"]:focus,
-    textarea:focus,
-    select:focus {
-      outline: none;
-      border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px var(--focus-ring);
-    }
-
-    /* Terminal Console */
-    .terminal-container {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 0.75rem;
-      height: 380px;
-      overflow-y: auto;
-      padding: 1rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      border-radius: 8px;
+      padding: 0.4rem 0.6rem;
       font-size: 0.8rem;
-      line-height: 1.6;
-      color: #a5f3fc;
-      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+      background: var(--bg-input);
+      color: var(--text);
+      font-family: inherit;
     }
 
-    .log-line {
-      margin-bottom: 0.2rem;
-      word-break: break-all;
+    input:focus, select:focus, textarea:focus {
+      outline: 1px solid var(--border-focus);
+      border-color: var(--border-focus);
     }
 
-    .log-ts {
-      color: #64748b;
-      margin-right: 0.5rem;
+    /* CODE, LOG & MONOSPACE BLOCKS */
+    code, pre, .mono-data {
+      font-family: Consolas, "SF Mono", Monaco, "Courier New", monospace !important;
+      font-size: 0.78rem;
     }
 
-    .log-svc {
-      color: #38bdf8;
-      font-weight: 700;
-      margin-right: 0.5rem;
-    }
-
-    .log-stderr {
-      color: #f87171;
-    }
-
-    .log-system {
-      color: #a3e635;
-      font-style: italic;
-    }
-
-    /* Slots Grid */
-    .queue-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .slot-card {
-      border: 2px dashed var(--border);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      background: var(--bg-slot);
-      text-align: center;
-    }
-
-    .slot-card.busy-active {
-      border-color: var(--primary);
-      background: var(--primary-light);
-    }
-
-    .slot-card.busy-proc {
-      border-color: var(--warning);
-      background: var(--warning-bg);
-    }
-
-    /* Modals & Popups */
+    /* MODAL AND DIALOGS */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(15, 23, 42, 0.7);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
-      z-index: 10000;
-      backdrop-filter: blur(4px);
+      z-index: 2000;
     }
 
-    .modal-box {
-      background: var(--bg-card);
-      max-width: 520px;
-      width: 100%;
-      border-radius: 1rem;
-      padding: 1.75rem;
-      border: 1px solid var(--border);
-    }
-
-    [hidden] {
+    /* CRITICAL FIX: Ensure any modal or element with hidden attribute or display:none is hidden */
+    [hidden],
+    .modal-overlay[hidden],
+    .modal-overlay.is-hidden {
       display: none !important;
     }
 
-    /* Global Cashier Floating Dock */
-    .cashier-floating-dock {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 100000;
-      display: flex;
-      flex-direction: row-reverse;
-      flex-wrap: wrap-reverse;
-      gap: 12px;
-      max-width: calc(100vw - 48px);
-      pointer-events: none;
+    .modal-card,
+    .modal-box {
+      background: var(--modal-bg) !important;
+      border: 1px solid var(--modal-border) !important;
+      border-radius: 8px !important;
+      padding: 1.25rem;
+      max-width: 640px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      color: var(--modal-text) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
     }
 
-    .cashier-modal-card {
-      pointer-events: auto;
-      width: 350px;
-      background: var(--bg-card);
-      border: 2px solid #22c55e;
-      border-radius: 12px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3), 0 0 18px rgba(34, 197, 94, 0.25);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      animation: cashierSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .modal-box h3,
+    .modal-box h4,
+    .modal-card h3,
+    .modal-card h4 {
+      color: var(--modal-text) !important;
     }
 
-    @keyframes cashierSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .modal-box input,
+    .modal-box select,
+    .modal-box textarea {
+      background: var(--modal-input-bg) !important;
+      border: 1px solid var(--modal-input-border) !important;
+      color: var(--modal-input-text) !important;
+      border-radius: 8px !important;
     }
 
-    .cashier-modal-card.is-card-terminal {
-      border-color: #38bdf8;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3), 0 0 18px rgba(56, 189, 248, 0.25);
-    }
-
-    .cashier-modal-header {
-      padding: 10px 14px;
-      background: var(--bg-surface);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .cashier-modal-badge {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .cashier-badge-cash {
-      background: rgba(34, 197, 94, 0.18);
-      color: #059669;
-      border: 1px solid rgba(34, 197, 94, 0.35);
-    }
-
-    [data-theme="dark"] .cashier-badge-cash {
-      color: #4ade80;
-    }
-
-    .cashier-badge-card {
-      background: rgba(56, 189, 248, 0.18);
-      color: #0284c7;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-    }
-
-    [data-theme="dark"] .cashier-badge-card {
-      color: #38bdf8;
-    }
-
-    .cashier-btn-minimize {
-      background: var(--btn-sec-bg);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .cashier-modal-body {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cashier-modal-amount-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
-    }
-
-    .cashier-modal-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .cashier-btn-accept {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 12.5px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .cashier-btn-decline {
-      background: var(--badge-danger-bg);
-      color: var(--badge-danger-text);
-      border: 1px solid var(--badge-danger-border);
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 12.5px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .cashier-modal-card.is-minimized {
-      width: auto;
-      min-width: 240px;
-      max-width: 340px;
-    }
-
-    .cashier-modal-card.is-minimized .cashier-modal-body {
-      display: none;
-    }
-
-    .cashier-modal-card.is-minimized .cashier-modal-header {
-      border-bottom: none;
-      padding: 8px 12px;
+    .modal-box label {
+      color: var(--modal-text) !important;
     }
   </style>
 </head>
@@ -980,67 +809,53 @@
   <header>
     <div class="brand-group">
       <div class="brand-title">
-        <span id="headerBrandTitle">🛡️ PayGate</span>
+        <span id="headerBrandTitle">PayGate</span>
       </div>
-      <span class="brand-badge">Merchant &amp; Supervisor Hub</span>
+      <span class="brand-badge">Merchant &amp; Supervisor Console</span>
     </div>
 
     <div class="header-quick-stats">
       <!-- Real Light / Dark Mode Toggle Pill -->
       <div class="theme-mode-pill" id="headerThemeBadge" onclick="toggleThemeManual()"
-        title="Auto-switches to Dark Mode in Developer Hub and Bright White Mode in Operations &amp; Store Settings. Click to toggle manually anytime.">
-        <span id="headerThemeIcon">☀️</span>
-        <span id="headerThemeText">Bright White</span>
+        title="Auto-switches to Dark Mode in Developer Hub and Theme: Light Mode in Operations &amp; Store Settings. Click to toggle manually anytime.">
+        <span id="headerThemeIcon"></span>
+        <span id="headerThemeText">Theme: Light</span>
       </div>
 
       <!-- YOUPI Store Port 5000 Switch Badge -->
       <div class="store-switch-badge is-offline" id="headerStoreBadge" onclick="toggleYoupiStore()"
         title="Click to 1-Click Enable/Disable YOUPI Showcase Store on Port 5000">
-        <span id="headerStoreDot">●</span>
-        <span id="headerStoreText">Store (5000): Checking...</span>
+        <span id="headerStoreDot"></span>
+        <span id="headerStoreText">Store [Port 5000]: Checking...</span>
       </div>
 
       <!-- Active VPA Display -->
-      <span class="badge badge-info" id="accountVpaDisplay" style="cursor:pointer;"
-        onclick="switchSection('storeSettings', 'subTabVpa')">
-        VPA: Loading...
-      </span>
+      <div class="header-stat-chip" id="accountVpaContainer" style="cursor:pointer;"
+        onclick="switchSection('storeSettings', 'subTabVpa')" title="Active Receiving UPI ID">
+        <span class="stat-label">VPA:</span>
+        <span id="accountVpaDisplay">Loading...</span>
+      </div>
 
       <!-- Environment Mode -->
-      <div
-        style="display:flex; align-items:center; gap:0.4rem; background:var(--bg-card); padding:0.3rem 0.75rem; border-radius:9999px; border:1px solid var(--border); cursor:pointer;"
-        onclick="switchSection('developerHub', 'subViewDevCloudflare')">
-        <span style="font-size:0.72rem; color:var(--text-muted); font-weight:700;">ENV:</span>
-        <span class="badge badge-info" id="headerEnvBadge" style="font-size:0.72rem; padding:0.15rem 0.5rem;">💻
-          LOCALHOST</span>
+      <div class="header-stat-chip" style="cursor:pointer;"
+        onclick="switchSection('developerHub', 'subViewDevCloudflare')" title="Gateway Environment Mode">
+        <span class="stat-label">ENV:</span>
+        <span id="headerEnvBadge">LOCALHOST</span>
       </div>
 
       <!-- Live Polling Indicator -->
       <div class="live-pulse-badge">
-        <div class="pulse-dot"></div>
-        <span>Live Syncing</span>
+        <span>SYNC ACTIVE</span>
       </div>
     </div>
   </header>
 
   <!-- MAIN NAVIGATION BAR: 3 HIGH-LEVEL SECTIONS -->
   <nav class="main-nav-bar">
-    <button class="main-nav-btn active" id="mainNavOperations" onclick="switchSection('operations')">
-      <span>🏪</span>
-      <span>Daily Merchant Operations</span>
-    </button>
-    <button class="main-nav-btn" id="mainNavStoreSettings" onclick="switchSection('storeSettings')">
-      <span>⚙️</span>
-      <span>Store Settings</span>
-    </button>
-    <button class="main-nav-btn" id="mainNavDeveloperHub" onclick="switchSection('developerHub')">
-      <span>🛠️</span>
-      <span>Developer &amp; Infrastructure Hub</span>
-    </button>
-    <button class="main-nav-btn" id="mainNavSecurity" onclick="switchSection('security')">
-      <span>🛡️</span>
-      <span>Security</span>
-    </button>
+    <button class="main-nav-btn active" id="mainNavOperations" onclick="switchSection('operations')">Merchant Operations</button>
+    <button class="main-nav-btn" id="mainNavStoreSettings" onclick="switchSection('storeSettings')">Store Settings</button>
+    <button class="main-nav-btn" id="mainNavDeveloperHub" onclick="switchSection('developerHub')">Developer &amp; Infrastructure</button>
+    <button class="main-nav-btn" id="mainNavSecurity" onclick="switchSection('security')">Security Console</button>
   </nav>
 
   <!-- SECONDARY SUB-NAVIGATION BAR (Dynamically adapts per section) -->
@@ -1092,7 +907,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">🔴 Real-Time Receiving Account Slot Ownership (UPI Invariant)</div>
+              <div class="card-heading">Real-Time Receiving Account Slot Ownership (UPI Invariant)</div>
               <div class="card-subtext">Guarantees zero payment collision by rotating dynamic slots per receiving UPI
                 VPA.</div>
             </div>
@@ -1156,7 +971,7 @@
         <div class="card" id="counterDeskOfflineCard">
           <div class="card-header">
             <div>
-              <div class="card-heading">🏪 Cash &amp; Card Billing Counter Desk (Live Counter Payment Requests)</div>
+              <div class="card-heading"> Cash &amp; Card Billing Counter Desk (Live Counter Payment Requests)</div>
               <div class="card-subtext">Real-time incoming payment requests from checkout screens. Verify banknotes or
                 POS slips and approve immediately.</div>
             </div>
@@ -1192,7 +1007,7 @@
         <div class="card" id="counterDeskCodCard" style="display:none;">
           <div class="card-header">
             <div>
-              <div class="card-heading">📦 Cash on Delivery (COD) Verified Orders</div>
+              <div class="card-heading"> Cash on Delivery (COD) Verified Orders</div>
               <div class="card-subtext">Orders placed with Cash on Delivery payment confirmation. Ready for fulfillment
                 and dispatch.</div>
             </div>
@@ -1228,7 +1043,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">💳 Payment Transactions Ledger</div>
+              <div class="card-heading"> Payment Transactions Ledger</div>
               <div class="card-subtext">Comprehensive transaction audit history with automated bank observer attribution
                 &amp; verification tiers.</div>
             </div>
@@ -1263,13 +1078,13 @@
       <div id="subViewOpsObservers" hidden>
         <div
           style="font-size:1.15rem; font-weight:800; color:var(--text-heading); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
-          <span>📡</span> Payment Observers (SMS & Gmail)
+          <span></span> Payment Observers (SMS & Gmail)
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
           <!-- Android Companion Card -->
           <div class="card" style="margin-bottom:0;">
             <div class="card-header">
-              <div class="card-heading">📱 Android SMS Gateway</div>
+              <div class="card-heading"> Android SMS Gateway</div>
               <span class="badge badge-info" id="smsGatewayBadge">STANDBY</span>
             </div>
             <p class="card-subtext" style="margin-bottom:1rem;">
@@ -1281,10 +1096,10 @@
                 Secret:</div>
               <code id="smsTokenVal" style="color:var(--info); font-weight:700; font-size:0.85rem;">Loading...</code>
               <button class="btn btn-secondary" style="font-size:0.7rem; padding:0.2rem 0.5rem; margin-left:0.5rem;"
-                onclick="copySmsToken()">📋 Copy</button>
+                onclick="copySmsToken()"> Copy</button>
             </div>
             <div style="display:flex; gap:0.5rem;">
-              <a class="btn btn-success" href="/youpi-sms-gateway.apk" download="youpi-sms-gateway.apk">📲 Download
+              <a class="btn btn-success" href="/youpi-sms-gateway.apk" download="youpi-sms-gateway.apk"> Download
                 Companion APK</a>
               <button class="btn btn-secondary" onclick="switchSection('developerHub', 'subTabAndroid')">Configure
                 Pairing ↗</button>
@@ -1294,7 +1109,7 @@
           <!-- Gmail Direct API Card -->
           <div class="card" style="margin-bottom:0;">
             <div class="card-header">
-              <div class="card-heading">📧 Gmail Direct API</div>
+              <div class="card-heading"> Gmail Direct API</div>
               <span class="badge badge-info" id="gmailConfigBadge">NOT CONFIGURED</span>
             </div>
             <p class="card-subtext" style="margin-bottom:1rem;">
@@ -1326,7 +1141,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">🎨 White-Label Branding &amp; Visual Gateway Customizer</div>
+              <div class="card-heading"> White-Label Branding &amp; Visual Gateway Customizer</div>
               <div class="card-subtext">Customize every visual, textual, and brand asset of your customer checkout
                 experience. Live reflection on smartphone mockup.</div>
             </div>
@@ -1341,7 +1156,7 @@
               <!-- SECTION 1: CORE BRAND IDENTITY -->
               <div class="settings-group-box">
                 <div class="group-box-title">
-                  🏷️ 1. Core Brand Identity &amp; Title
+                  ️ 1. Core Brand Identity &amp; Title
                 </div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
                   <div>
@@ -1371,7 +1186,7 @@
               <!-- SECTION 2: VISUAL THEME & COLOR PALETTE -->
               <div class="settings-group-box">
                 <div class="group-box-title">
-                  🎨 2. Visual Theme &amp; Color Palette
+                   2. Visual Theme &amp; Color Palette
                 </div>
                 <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:1rem; margin-bottom:1rem;">
                   <div>
@@ -1402,17 +1217,17 @@
                     FinTech Brand Palettes:</span>
                   <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#0b63e5', 'gradient')">🔵 Sapphire Blue</button>
+                      onclick="applyQuickPalette('#0b63e5', 'gradient')"> Sapphire Blue</button>
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#10b981', 'gradient')">🟢 Emerald Green</button>
+                      onclick="applyQuickPalette('#10b981', 'gradient')"> Emerald Green</button>
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#8b5cf6', 'gradient')">🟣 Violet Purple</button>
+                      onclick="applyQuickPalette('#8b5cf6', 'gradient')"> Violet Purple</button>
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#f43f5e', 'gradient')">🔴 Rose Crimson</button>
+                      onclick="applyQuickPalette('#f43f5e', 'gradient')"> Rose Crimson</button>
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#d97706', 'gradient')">🟡 Amber Gold</button>
+                      onclick="applyQuickPalette('#d97706', 'gradient')"> Amber Gold</button>
                     <button type="button" class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;"
-                      onclick="applyQuickPalette('#0f172a', 'dark')">⚫ Obsidian Dark</button>
+                      onclick="applyQuickPalette('#0f172a', 'dark')"> Obsidian Dark</button>
                   </div>
                 </div>
               </div>
@@ -1420,7 +1235,7 @@
               <!-- SECTION 3: TRUST BADGE & SUB-BANNER CONTROLS -->
               <div class="settings-group-box">
                 <div class="group-box-title">
-                  🛡️ 3. Badges &amp; Conversion Banners
+                  ️ 3. Badges &amp; Conversion Banners
                 </div>
                 <!-- Hidden inputs preserve existing trust badge settings without merchant UI access -->
                 <input type="hidden" id="settingHideTrustBadge" />
@@ -1434,7 +1249,7 @@
                       <span>Hide Sub-banner</span>
                     </label>
                   </div>
-                  <input id="settingSubbannerText" type="text" placeholder="e.g. ⚡ 5-Second Instant UPI Activation"
+                  <input id="settingSubbannerText" type="text" placeholder="e.g.  5-Second Instant UPI Activation"
                     style="width:100%;" oninput="updateLiveWhiteLabelPreview()" />
                 </div>
                 <div>
@@ -1449,7 +1264,7 @@
               <!-- SECTION 4: TRUST GUARANTEES & NOTICES -->
               <div class="settings-group-box">
                 <div class="group-box-title">
-                  🛡️ 4. Guarantees &amp; Conversion Notices
+                  ️ 4. Guarantees &amp; Conversion Notices
                 </div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
                   <div>
@@ -1466,7 +1281,7 @@
               <!-- SECTION 5: SUPPORT & LEGAL POLICIES -->
               <div class="settings-group-box">
                 <div class="group-box-title">
-                  📞 5. Support &amp; Legal Policies
+                   5. Support &amp; Legal Policies
                 </div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
                   <div>
@@ -1501,7 +1316,7 @@
               <button class="btn btn-primary"
                 style="padding:0.85rem 1.75rem; font-size:0.95rem; width:100%; justify-content:center;"
                 onclick="saveMerchantBrandingAndToggles()">
-                💾 Save &amp; Apply All White-Label Settings
+                 Save &amp; Apply All White-Label Settings
               </button>
             </div>
 
@@ -1545,7 +1360,7 @@
                         </div>
                         <div id="mockupTrustBadge"
                           style="display:inline-flex; align-items:center; gap:3px; margin-top:2px;">
-                          <span style="font-size:11px;">🛡️</span>
+                          <span style="font-size:11px;">️</span>
                           <span id="mockupTrustBadgeText"
                             style="font-size:10px; font-weight:700; color:rgba(255,255,255,0.92);">YouPI PG Verified
                             Business</span>
@@ -1554,12 +1369,12 @@
                     </div>
                     <div
                       style="width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-size:12px;">
-                      👤</div>
+                      </div>
                   </div>
 
                   <div id="mockupSubbanner"
                     style="background:rgba(255,255,255,0.15); border-radius:6px; padding:4px 8px; font-size:10.5px; font-weight:700; display:flex; align-items:center; gap:5px; backdrop-filter:blur(4px);">
-                    <span>🛒</span>
+                    <span></span>
                     <span id="mockupSubbannerText"
                       style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Verified &amp; Protected by
                       YOUPI PG</span>
@@ -1570,7 +1385,7 @@
                 <div style="padding:12px; background:#f8fafc; flex:1; display:flex; flex-direction:column; gap:10px;">
                   <div id="mockupTimeSavingBanner"
                     style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:7px 10px; display:flex; align-items:center; justify-content:space-between; gap:6px;">
-                    <div style="font-size:10px; color:#14532d; font-weight:700; line-height:1.3;">⚡ Skip wait: Instant
+                    <div style="font-size:10px; color:#14532d; font-weight:700; line-height:1.3;"> Skip wait: Instant
                       billing counter checkout available</div>
                     <span
                       style="background:#10b981; color:#fff; font-size:9px; font-weight:800; padding:3px 7px; border-radius:5px; white-space:nowrap;">Switch</span>
@@ -1605,7 +1420,7 @@
                 <div style="background:#ffffff; border-top:1px solid #e2e8f0; padding:10px 14px; margin-top:auto;">
                   <div
                     style="display:flex; align-items:center; justify-content:center; gap:5px; font-size:10px; font-weight:700; color:#0b63e5; margin-bottom:5px;">
-                    <span>🛡️</span>
+                    
                     <span id="mockupFooterGuarantee">100% Payment Protection by YOUPI PG</span>
                   </div>
                   <div id="mockupLegalDisclaimer"
@@ -1640,7 +1455,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">⚡ Receiving UPI Accounts &amp; Multiple VPAs</div>
+              <div class="card-heading"> Receiving UPI Accounts &amp; Multiple VPAs</div>
               <div class="card-subtext">Manage receiving VPAs. <strong>Only ONE VPA can be active at a time</strong> for
                 gateway payments. Activating a VPA automatically rotates and deactivates all others.</div>
             </div>
@@ -1659,14 +1474,14 @@
             </div>
             <div style="text-align:right;">
               <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.3rem;">Checkout Mode</div>
-              <div style="font-size:0.9rem; font-weight:800; color:var(--success);">✓ Direct Dynamic UPI QR Gateway
+              <div style="font-size:0.9rem; font-weight:800; color:var(--success);">[SINGLE] Direct Dynamic UPI QR Gateway
               </div>
             </div>
           </div>
 
           <!-- Add New VPA Section -->
           <div class="settings-group-box">
-            <h4 style="margin-bottom:0.85rem; font-size:0.95rem; color:var(--text-heading);">➕ Add New Receiving UPI VPA
+            <h4 style="margin-bottom:0.85rem; font-size:0.95rem; color:var(--text-heading);"> Add New Receiving UPI VPA
             </h4>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
               <div>
@@ -1687,12 +1502,12 @@
                 <input type="checkbox" id="newUpiActivateNow" checked style="width:16px; height:16px;" />
                 <span>Set as active VPA for customer checkout immediately</span>
               </label>
-              <button class="btn btn-primary" onclick="addNewUpiAccount()">➕ Save &amp; Add UPI Account</button>
+              <button class="btn btn-primary" onclick="addNewUpiAccount()"> Save &amp; Add UPI Account</button>
             </div>
           </div>
 
           <!-- Saved VPAs Table -->
-          <h4 style="margin-bottom:0.75rem; font-size:0.95rem; color:var(--text-heading);">📋 Saved Receiving UPI
+          <h4 style="margin-bottom:0.75rem; font-size:0.95rem; color:var(--text-heading);"> Saved Receiving UPI
             Accounts</h4>
           <div style="overflow-x:auto;">
             <table>
@@ -1722,7 +1537,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">🏪 Store Selling Mode &amp; Payment Modalities</div>
+              <div class="card-heading"> Store Selling Mode &amp; Payment Modalities</div>
               <div class="card-subtext">Toggle between <strong>Online Selling Mode</strong> (E-Commerce) or
                 <strong>Offline Selling Mode</strong> (Physical till/POS desk). Reflects instantly on checkout.
               </div>
@@ -1734,7 +1549,7 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
             <div id="cardModeOnline" onclick="setSellingMode('ONLINE', true)" class="selling-mode-card mode-selected-online">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-                <strong style="font-size:1rem; color:var(--text-heading);">🌐 Online Selling Mode</strong>
+                <strong style="font-size:1rem; color:var(--text-heading);"> Online Selling Mode</strong>
                 <span class="badge badge-primary" id="badgeOnlineActive">ACTIVE</span>
               </div>
               <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.45; margin:0;">
@@ -1745,7 +1560,7 @@
 
             <div id="cardModeOffline" onclick="setSellingMode('OFFLINE', true)" class="selling-mode-card">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-                <strong style="font-size:1rem; color:var(--text-heading);">🏬 Offline Selling Mode</strong>
+                <strong style="font-size:1rem; color:var(--text-heading);"> Offline Selling Mode</strong>
                 <span class="badge badge-warning" id="badgeOfflineActive" style="display:none;">ACTIVE</span>
               </div>
               <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.45; margin:0;">
@@ -1757,7 +1572,7 @@
 
           <!-- ONLINE PAYMENT MODALITIES -->
           <div id="panelOnlineMode" class="settings-group-box">
-            <div style="font-size:0.88rem; font-weight:700; color:var(--info); margin-bottom:0.75rem;">🌐 Online Payment
+            <div style="font-size:0.88rem; font-weight:700; color:var(--info); margin-bottom:0.75rem;"> Online Payment
               Options</div>
             <div style="display:flex; flex-direction:column; gap:1rem;">
               <div
@@ -1790,7 +1605,7 @@
 
           <!-- OFFLINE PAYMENT MODALITIES -->
           <div id="panelOfflineMode" hidden class="settings-group-box">
-            <div style="font-size:0.88rem; font-weight:700; color:var(--warning); margin-bottom:0.75rem;">🏬 Offline
+            <div style="font-size:0.88rem; font-weight:700; color:var(--warning); margin-bottom:0.75rem;"> Offline
               Counter Payment Options</div>
             <div style="display:flex; flex-direction:column; gap:1rem;">
               <div
@@ -1836,7 +1651,7 @@
 
           <!-- Offline Instructions -->
           <div class="settings-group-box">
-            <div style="font-size:0.88rem; font-weight:700; color:var(--text-heading); margin-bottom:1rem;">🏪 In-Store
+            <div style="font-size:0.88rem; font-weight:700; color:var(--text-heading); margin-bottom:1rem;"> In-Store
               Till &amp; POS Instructions</div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -1858,7 +1673,7 @@
 
           <button class="btn btn-primary" style="width:100%; padding:0.75rem;"
             onclick="saveMerchantBrandingAndToggles()">
-            💾 Save Selling Mode &amp; Payment Modalities
+             Save Selling Mode &amp; Payment Modalities
           </button>
         </div>
       </div>
@@ -1875,15 +1690,15 @@
       <div id="subViewDevSimulator" hidden>
         <!-- Header Banner -->
         <div class="card"
-          style="border:2px solid #3b82f6; background:linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(15,23,42,0.98) 100%); margin-bottom:1.5rem;">
+          style="border:1px solid var(--border); background:var(--bg-card); margin-bottom:1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
             <div>
               <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
-                <span style="font-size:1.5rem;">🎮</span>
+                <span style="font-size:1.5rem;"></span>
                 <h2 style="margin:0; font-size:1.35rem; color:#ffffff; font-weight:800;">Developer Tools → Payment
                   Simulator</h2>
                 <span class="badge"
-                  style="background:#2563eb; color:#ffffff; font-size:0.75rem; padding:0.25rem 0.65rem;">DEVELOPER
+                  style="background:#ed1c24; color:#ffffff; font-size:0.75rem; padding:0.25rem 0.65rem; border-radius:4px;">DEVELOPER
                   TESTING ONLY</span>
               </div>
               <p
@@ -1909,14 +1724,14 @@
         </div>
 
         <!-- Target Customer & Active Payment Session Card -->
-        <div class="card" style="border:1px solid #334155; background:#0f172a; margin-bottom:1.5rem;">
+        <div class="card" style="border:1px solid var(--border); background:var(--bg-card); border-radius:6px; margin-bottom:1.5rem;">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem;">
 
             <!-- Column 1: Customer Selection -->
             <div>
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
                 <strong style="color:#ffffff; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem;">
-                  <span>👤</span> Target Customer
+                  <span></span> Target Customer
                 </strong>
                 <button class="btn btn-secondary" onclick="simFetchCustomers()"
                   style="font-size:0.72rem; padding:0.25rem 0.6rem;">
@@ -1950,7 +1765,7 @@
             <div>
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
                 <strong style="color:#ffffff; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem;">
-                  <span>💳</span> Active Payment Sessions
+                  <span></span> Active Payment Sessions
                 </strong>
                 <button class="btn btn-secondary" onclick="simReloadSessions()"
                   style="font-size:0.72rem; padding:0.25rem 0.6rem;">
@@ -1967,7 +1782,7 @@
               <!-- Terminal Session Notice (Requirement 6) -->
               <div id="simTerminalNotice"
                 style="display:none; margin-top:0.75rem; padding:0.75rem 1rem; border-radius:8px; background:rgba(239,68,68,0.15); border:1px solid #ef4444; color:#fca5a5; font-size:0.84rem; font-weight:700;">
-                ⚠️ SESSION NO LONGER ACTIVE — Observation injection disabled for terminal sessions.
+                ️ SESSION NO LONGER ACTIVE — Observation injection disabled for terminal sessions.
               </div>
 
               <!-- Selected Session Details Bar -->
@@ -1997,11 +1812,11 @@
           style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:1.5rem; margin-bottom:1.5rem;">
 
           <!-- SMS STREAM PANEL -->
-          <div class="card" style="border:1px solid #3b82f6; background:#0b0f19;">
+          <div class="card" style="border:1px solid var(--border); background:var(--bg-card); border-radius:6px;">
             <div
               style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
-              <strong style="color:#60a5fa; font-size:1.05rem; display:flex; align-items:center; gap:0.5rem;">
-                <span>📱</span> SMS STREAM
+              <strong style="color:var(--text-heading); font-size:1.05rem; display:flex; align-items:center; gap:0.5rem;">
+                <span></span> SMS STREAM
               </strong>
               <span style="font-size:0.74rem; color:#94a3b8;">100% Customizable · Any String</span>
             </div>
@@ -2044,17 +1859,17 @@
             </div>
 
             <button id="simBtnPushSms" class="btn btn-primary" onclick="simInjectObservation('SMS')"
-              style="width:100%; background:#2563eb; border-color:#1d4ed8; padding:0.65rem; font-size:0.92rem; font-weight:800; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
-              <span>🚀</span> PUSH SMS TO STREAM
+              style="width:100%; background:#ed1c24; border-color:#c81018; color:#ffffff; padding:0.65rem; font-size:0.92rem; font-weight:700; border-radius:6px; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
+              <span></span> PUSH SMS TO STREAM
             </button>
           </div>
 
           <!-- GMAIL STREAM PANEL -->
-          <div class="card" style="border:1px solid #ec4899; background:#0b0f19;">
+          <div class="card" style="border:1px solid var(--border); background:var(--bg-card); border-radius:6px;">
             <div
               style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
-              <strong style="color:#f472b6; font-size:1.05rem; display:flex; align-items:center; gap:0.5rem;">
-                <span>✉️</span> GMAIL STREAM
+              <strong style="color:var(--text-heading); font-size:1.05rem; display:flex; align-items:center; gap:0.5rem;">
+                <span>️</span> GMAIL STREAM
               </strong>
               <span style="font-size:0.74rem; color:#94a3b8;">100% Customizable · Any String</span>
             </div>
@@ -2097,8 +1912,8 @@
             </div>
 
             <button id="simBtnPushGmail" class="btn btn-primary" onclick="simInjectObservation('GMAIL')"
-              style="width:100%; background:#db2777; border-color:#be185d; padding:0.65rem; font-size:0.92rem; font-weight:800; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
-              <span>🚀</span> PUSH GMAIL TO STREAM
+              style="width:100%; background:#ed1c24; border-color:#c81018; color:#ffffff; padding:0.65rem; font-size:0.92rem; font-weight:700; border-radius:6px; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
+              <span></span> PUSH GMAIL TO STREAM
             </button>
           </div>
 
@@ -2110,7 +1925,7 @@
           <div
             style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
             <div style="display:flex; align-items:center; gap:0.75rem;">
-              <span style="font-size:1.3rem;">🔬</span>
+              <span style="font-size:1.3rem;"></span>
               <h3 style="margin:0; font-size:1.15rem; color:#ffffff; font-weight:800;">Processing Result Inspector</h3>
               <span id="simResultStatusBadge" class="badge"
                 style="font-size:0.82rem; padding:0.3rem 0.75rem;">UNKNOWN</span>
@@ -2164,10 +1979,10 @@
         </div>
 
         <!-- SIMULATION HISTORY (Section 26 & 30) -->
-        <div class="card" style="border:1px solid #1e293b; background:#0b0f19;">
+        <div class="card" style="border:1px solid var(--border); background:var(--bg-card); border-radius:6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
             <strong style="color:#ffffff; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem;">
-              <span>📜</span> Simulation History
+              <span></span> Simulation History
             </strong>
             <button class="btn btn-secondary" onclick="simFetchHistory()"
               style="font-size:0.74rem; padding:0.25rem 0.65rem;">
@@ -2208,7 +2023,7 @@
           <div
             style="max-width:480px; width:92%; background:#0f172a; border:2px solid #f59e0b; border-radius:12px; padding:1.75rem; box-shadow:0 25px 50px -12px rgba(0,0,0,0.9);">
             <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
-              <span style="font-size:1.8rem;">⚠️</span>
+              <span style="font-size:1.8rem;">️</span>
               <h3 style="margin:0; font-size:1.25rem; color:#fbbf24; font-weight:800;">Enable Test Mode?</h3>
             </div>
             <p style="color:#e2e8f0; font-size:0.92rem; line-height:1.6; margin-bottom:1.5rem;">
@@ -2234,7 +2049,7 @@
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
             <div style="flex:1; min-width:280px;">
               <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
-                <span style="font-size:1.35rem;">🧪</span>
+                <span style="font-size:1.35rem;"></span>
                 <strong style="font-size:1.15rem; color:#ffffff;">Developer Settings → Test Mode</strong>
                 <span class="badge" id="testModeBadge"
                   style="font-size:0.75rem; padding:0.25rem 0.65rem; background:#334155; color:#94a3b8;">[ OFF ] Test
@@ -2248,7 +2063,7 @@
               </p>
               <div
                 style="display:flex; align-items:center; gap:0.75rem; margin-top:0.6rem; font-size:0.78rem; color:#94a3b8; flex-wrap:wrap;">
-                <span id="testModeBanStatusText">🛡️ Automatic Ban System: <strong style="color:#22c55e;">ENABLED
+                <span id="testModeBanStatusText">Automatic Ban System: <strong style="color:#22c55e;">ENABLED
                     (Normal)</strong></span>
                 <span id="testModeCountdownWrap" style="display:none; color:#fbbf24; font-weight:700;">⏱ Test Mode
                   Enabled · Remaining time: <span id="testModeTimerVal">10:00</span></span>
@@ -2269,7 +2084,7 @@
             style="display:none; margin-top:1.25rem; padding:1rem; border-radius:8px; background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.4); color:#fef3c7;">
             <div
               style="display:flex; align-items:center; gap:0.6rem; font-weight:800; font-size:0.95rem; color:#fbbf24; margin-bottom:0.25rem;">
-              <span>⚠️</span> TEST MODE ACTIVE
+              <span>️</span> TEST MODE ACTIVE
             </div>
             <div style="font-size:0.84rem; color:#fed7aa; line-height:1.4;">
               Automatic banning is temporarily disabled. This mode will automatically turn off after 10 minutes.
@@ -2283,7 +2098,7 @@
               style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem;">
               <div>
                 <h4 style="margin:0; font-size:1.05rem; color:#ffffff; display:flex; align-items:center; gap:0.5rem;">
-                  <span>🎯</span> Test Payment Observation
+                  <span></span> Test Payment Observation
                 </h4>
                 <span style="font-size:0.78rem; color:#94a3b8;">Inject synthetic observations directly into the
                   canonical 6-stage production verification flow.</span>
@@ -2291,11 +2106,11 @@
               <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
                 <button class="btn btn-secondary" onclick="generateFakeSmsTemplate()"
                   style="font-size:0.8rem; padding:0.4rem 0.85rem; border-color:#d97706; color:#fde68a;">
-                  📱 Create Fake SMS
+                   Create Fake SMS
                 </button>
                 <button class="btn btn-secondary" onclick="generateFakeGmailTemplate()"
                   style="font-size:0.8rem; padding:0.4rem 0.85rem; border-color:#d97706; color:#fde68a;">
-                  ✉️ Create Fake Gmail
+                  ️ Create Fake Gmail
                 </button>
               </div>
             </div>
@@ -2321,8 +2136,8 @@
               <!-- Custom SMS Input Area (Section 11D) -->
               <div style="background:#0b0f19; border:1px solid #334155; border-radius:10px; padding:1.1rem;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                  <strong style="color:#60a5fa; font-size:0.92rem; display:flex; align-items:center; gap:0.4rem;">
-                    📱 SMS Test Message
+                  <strong style="color:var(--text-heading); font-size:0.92rem; display:flex; align-items:center; gap:0.4rem;">
+                     SMS Test Message
                   </strong>
                   <input type="text" id="inputTestSmsSender" placeholder="Sender (e.g. VM-HDFCBK)" value="VM-HDFCBK"
                     style="background:#1e293b; color:#cbd5e1; border:1px solid #334155; font-size:0.75rem; padding:0.25rem 0.5rem; border-radius:4px; width:130px;" />
@@ -2333,8 +2148,8 @@
                 <div style="margin-top:0.75rem; display:flex; justify-content:space-between; align-items:center;">
                   <span style="font-size:0.72rem; color:#64748b;">Preserved verbatim as <code>raw</code></span>
                   <button class="btn btn-primary" id="btnInjectSms" onclick="injectTestMessage('SMS')"
-                    style="background:#2563eb; border-color:#1d4ed8; font-size:0.82rem; padding:0.45rem 1rem;">
-                    🚀 Inject Test SMS
+                    style="background:#ed1c24; border-color:#c81018; color:#ffffff; font-size:0.82rem; padding:0.45rem 1rem; border-radius:6px;">
+                     Inject Test SMS
                   </button>
                 </div>
               </div>
@@ -2342,8 +2157,8 @@
               <!-- Custom Gmail Input Area (Section 11E) -->
               <div style="background:#0b0f19; border:1px solid #334155; border-radius:10px; padding:1.1rem;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                  <strong style="color:#f472b6; font-size:0.92rem; display:flex; align-items:center; gap:0.4rem;">
-                    ✉️ Gmail Test Message
+                  <strong style="color:var(--text-heading); font-size:0.92rem; display:flex; align-items:center; gap:0.4rem;">
+                    ️ Gmail Test Message
                   </strong>
                   <input type="text" id="inputTestGmailSender" placeholder="Sender (e.g. alerts@hdfc.bank.in)"
                     value="alerts@hdfc.bank.in"
@@ -2355,8 +2170,8 @@
                 <div style="margin-top:0.75rem; display:flex; justify-content:space-between; align-items:center;">
                   <span style="font-size:0.72rem; color:#64748b;">Preserved verbatim as <code>raw</code></span>
                   <button class="btn btn-primary" id="btnInjectGmail" onclick="injectTestMessage('GMAIL')"
-                    style="background:#db2777; border-color:#be185d; font-size:0.82rem; padding:0.45rem 1rem;">
-                    🚀 Inject Test Gmail
+                    style="background:#ed1c24; border-color:#c81018; color:#ffffff; font-size:0.82rem; padding:0.45rem 1rem; border-radius:6px;">
+                     Inject Test Gmail
                   </button>
                 </div>
               </div>
@@ -2368,7 +2183,7 @@
               <div
                 style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
                 <div style="display:flex; align-items:center; gap:0.75rem;">
-                  <h4 style="margin:0; font-size:1rem; color:#ffffff;">🔬 Complete Processing Result</h4>
+                  <h4 style="margin:0; font-size:1rem; color:#ffffff;"> Complete Processing Result</h4>
                   <span id="testResultStatusBadge" class="badge"
                     style="font-size:0.8rem; padding:0.3rem 0.75rem;">UNKNOWN</span>
                 </div>
@@ -2411,7 +2226,7 @@
             <div style="background:#0b0f19; border:1px solid #1e293b; border-radius:10px; padding:1.1rem;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
                 <strong style="color:#ffffff; font-size:0.88rem; display:flex; align-items:center; gap:0.4rem;">
-                  📜 Test Mode Audit Log
+                   Test Mode Audit Log
                 </strong>
                 <button class="btn btn-secondary" onclick="fetchTestModeAuditLog()"
                   style="font-size:0.72rem; padding:0.25rem 0.6rem;">
@@ -2448,10 +2263,10 @@
           <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
             <div style="flex:1; min-width:280px;">
               <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
-                <span style="font-size:1.35rem;">🎭</span>
+                <span style="font-size:1.35rem;"></span>
                 <strong style="font-size:1.15rem; color:#ffffff;">UPI Server Health: False Narrative Switch</strong>
                 <span class="badge badge-info" id="falseNarrativeBadge"
-                  style="font-size:0.75rem; padding:0.25rem 0.65rem;">⚪ OFF · REAL SERVER STATUS</span>
+                  style="font-size:0.75rem; padding:0.25rem 0.65rem;">REAL SERVER STATUS</span>
               </div>
               <p
                 style="font-size:0.84rem; color:var(--text-muted); margin-top:0.4rem; max-width:760px; line-height:1.5;">
@@ -2462,7 +2277,7 @@
               </p>
               <div
                 style="display:flex; align-items:center; gap:0.75rem; margin-top:0.6rem; font-size:0.78rem; color:#94a3b8; flex-wrap:wrap;">
-                <span>⚡ <strong>QR Code Invariant:</strong> The dynamic UPI QR code always loads and displays whether
+                <span> <strong>QR Code Invariant:</strong> The dynamic UPI QR code always loads and displays whether
                   servers are UP, BUSY, or DOWN.</span>
                 <span id="falseNarrativeCountdownWrap" style="display:none; color:#c084fc; font-weight:700;">⏱
                   Auto-expiry: <span id="falseNarrativeTimerVal">10:00</span></span>
@@ -2475,19 +2290,19 @@
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
                 <button type="button" id="btnNarrativeGreen" onclick="handleFalseNarrativeSelect('GREEN')"
                   style="background:#064e3b; border:1px solid #059669; color:#6ee7b7; font-size:0.8rem; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.15s;">
-                  🟢 Green
+                   Green
                 </button>
                 <button type="button" id="btnNarrativeYellow" onclick="handleFalseNarrativeSelect('YELLOW')"
                   style="background:#78350f; border:1px solid #d97706; color:#fde68a; font-size:0.8rem; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.15s;">
-                  🟡 Yellow
+                   Yellow
                 </button>
                 <button type="button" id="btnNarrativeRed" onclick="handleFalseNarrativeSelect('RED')"
                   style="background:#7f1d1d; border:1px solid #dc2626; color:#fca5a5; font-size:0.8rem; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.15s;">
-                  🔴 Red
+                   Red
                 </button>
                 <button type="button" id="btnNarrativeOff" onclick="handleFalseNarrativeSelect('OFF')"
                   style="background:#1e293b; border:1px solid #475569; color:#cbd5e1; font-size:0.8rem; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:all 0.15s;">
-                  ⚪ Off (Live)
+                   Off (Live)
                 </button>
               </div>
             </div>
@@ -2500,7 +2315,7 @@
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
             <div>
               <div style="display:flex; align-items:center; gap:0.6rem;">
-                <span style="font-size:1.35rem;">🛍️</span>
+                <span style="font-size:1.35rem;">️</span>
                 <strong style="font-size:1.15rem; color:#ffffff;">YOUPI Showcase Store (Port 5000)</strong>
                 <span class="badge" id="cardStoreBadge"
                   style="font-size:0.8rem; padding:0.3rem 0.75rem;">CHECKING...</span>
@@ -2514,11 +2329,11 @@
             <div style="display:flex; align-items:center; gap:0.75rem;">
               <a href="http://localhost:5000" id="btnOpenStoreLink" target="_blank" class="btn btn-secondary"
                 style="font-size:0.85rem; padding:0.6rem 1.1rem; text-decoration:none;">
-                🌐 Open Store (5000) ↗
+                 Open Store (5000) ↗
               </a>
               <button class="btn btn-primary" id="btnToggleYoupiStore"
                 style="font-size:0.88rem; padding:0.65rem 1.4rem;" onclick="toggleYoupiStore()">
-                ⚡ Toggle Port 5000
+                 Toggle Port 5000
               </button>
             </div>
           </div>
@@ -2528,14 +2343,14 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">🖥️ Managed Host Processes (Unified Control Center)</div>
+              <div class="card-heading">️ Managed Host Processes (Unified Control Center)</div>
               <div class="card-subtext">Native child process supervisor. Zero external container dependencies. Start,
                 stop, or restart any gateway service independently.</div>
             </div>
             <div style="display:flex; gap:0.5rem; align-items:center;">
               <button class="btn btn-success" onclick="startAllServices()">▶ Start All</button>
               <button class="btn btn-danger" onclick="stopAllServices()">⏹ Stop All</button>
-              <button class="btn btn-secondary" onclick="loadServices()">🔄 Refresh</button>
+              <button class="btn btn-secondary" onclick="loadServices()"> Refresh</button>
             </div>
           </div>
 
@@ -2565,7 +2380,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">📜 Real-Time Aggregate Terminal Console</div>
+              <div class="card-heading"> Real-Time Aggregate Terminal Console</div>
               <div class="card-subtext">Live SSE stdout/stderr broadcast stream from all active processes.</div>
             </div>
             <div style="display:flex; gap:0.6rem; align-items:center;">
@@ -2597,11 +2412,11 @@
         <div class="card" id="cardCloudflareConfig">
           <div class="card-header">
             <div>
-              <div class="card-heading">☁️ Cloudflare Tunnel Configuration</div>
+              <div class="card-heading">️ Cloudflare Tunnel Configuration</div>
               <div class="card-subtext">Single canonical production gateway routing. Enter your domain and prefix; all
                 routes, local service ports, and dashboard mappings are system-derived.</div>
             </div>
-            <span class="badge badge-info" id="envModeDisplayBadge">💻 LOCALHOST MODE</span>
+            <span class="badge badge-info" id="envModeDisplayBadge">LOCALHOST MODE</span>
           </div>
 
           <!-- Mode Segmented Switch -->
@@ -2609,7 +2424,7 @@
             <div id="btnEnvLocalhost" onclick="setEnvMode('localhost')"
               style="background:#0f172a; border:2px solid #38bdf8; border-radius:0.75rem; padding:1.2rem; cursor:pointer; transition:all 0.2s;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                <strong style="font-size:1rem; color:#f1f5f9;">💻 Localhost Mode (Development)</strong>
+                <strong style="font-size:1rem; color:#f1f5f9;"> Localhost Mode (Development)</strong>
                 <span class="badge badge-primary" id="badgeLocalhostActive">ACTIVE</span>
               </div>
               <p style="font-size:0.8rem; color:var(--text-muted); margin:0; line-height:1.4;">
@@ -2621,7 +2436,7 @@
             <div id="btnEnvProduction" onclick="setEnvMode('production')"
               style="background:#0b1120; border:1px solid var(--border); border-radius:0.75rem; padding:1.2rem; cursor:pointer; transition:all 0.2s;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                <strong style="font-size:1rem; color:#f1f5f9;">🌍 Production Mode (Cloudflare Tunnel)</strong>
+                <strong style="font-size:1rem; color:#f1f5f9;"> Production Mode (Cloudflare Tunnel)</strong>
                 <span class="badge badge-success" id="badgeProductionActive" style="display:none;">ACTIVE</span>
               </div>
               <p style="font-size:0.8rem; color:var(--text-muted); margin:0; line-height:1.4;">
@@ -2634,7 +2449,7 @@
           <!-- Cloudflare Configuration Form -->
           <div
             style="background:#090d16; border:1px solid var(--border); border-radius:0.75rem; padding:1.25rem; margin-bottom:1.5rem;">
-            <div style="font-size:0.88rem; font-weight:700; color:#38bdf8; margin-bottom:0.75rem;">☁️ Cloudflare Domain
+            <div style="font-size:0.88rem; font-weight:700; color:#38bdf8; margin-bottom:0.75rem;">️ Cloudflare Domain
               &amp; Prefix Setup</div>
             <div
               style="display:grid; grid-template-columns:2fr 1fr 1.3fr; gap:1rem; align-items:flex-end; margin-bottom:1rem;">
@@ -2654,7 +2469,7 @@
               </div>
               <div>
                 <button class="btn btn-primary" style="width:100%; padding:0.65rem; justify-content:center;"
-                  onclick="saveDomainSettings()">💾 SAVE CONFIGURATION</button>
+                  onclick="saveDomainSettings()"> SAVE CONFIGURATION</button>
               </div>
             </div>
           </div>
@@ -2663,11 +2478,11 @@
           <div style="margin-bottom:1.5rem;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
               <div>
-                <div style="font-size:0.95rem; font-weight:800; color:#f1f5f9;">🛣️ CLOUDFLARE TUNNEL ROUTES</div>
+                <div style="font-size:0.95rem; font-weight:800; color:#f1f5f9;">️ CLOUDFLARE TUNNEL ROUTES</div>
                 <div style="font-size:0.78rem; color:var(--text-muted);">Exact routes to create in Cloudflare Dashboard.
                   All ports and roles are system-defined.</div>
               </div>
-              <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyAllMappings()">📋 COPY ALL
+              <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyAllMappings()"> COPY ALL
                 MAPPINGS</button>
             </div>
             <div id="cloudflareRoutesContainer" style="display:flex; flex-direction:column; gap:0.75rem;">
@@ -2677,7 +2492,7 @@
 
           <!-- CLOUDFLARE DASHBOARD INSTRUCTIONS -->
           <div style="background:#090d16; border:1px solid var(--border); border-radius:0.75rem; padding:1.25rem;">
-            <div style="font-size:0.88rem; font-weight:700; color:#38bdf8; margin-bottom:0.75rem;">📖 EXACT CLOUDFLARE
+            <div style="font-size:0.88rem; font-weight:700; color:#38bdf8; margin-bottom:0.75rem;"> EXACT CLOUDFLARE
               DASHBOARD INSTRUCTIONS</div>
             <div
               style="display:flex; flex-wrap:wrap; align-items:center; gap:0.4rem; margin-bottom:1rem; font-size:0.8rem; font-family:monospace; background:#020617; padding:0.75rem; border-radius:0.5rem; border:1px solid #1e293b;">
@@ -2722,7 +2537,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">⚡ Webhook Endpoints &amp; Cryptographic Secrets</div>
+              <div class="card-heading"> Webhook Endpoints &amp; Cryptographic Secrets</div>
               <div class="card-subtext">Configure where real-time signed payment status events are dispatched via
                 HMAC-SHA256.</div>
             </div>
@@ -2747,7 +2562,7 @@
 
             <button class="btn btn-primary" style="width:auto; align-self:flex-start;"
               onclick="saveMerchantBrandingAndToggles()">
-              💾 Save Webhook Settings
+               Save Webhook Settings
             </button>
           </div>
         </div>
@@ -2758,7 +2573,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">📱 Android SMS Companion App &amp; Device Pairing</div>
+              <div class="card-heading"> Android SMS Companion App &amp; Device Pairing</div>
               <div class="card-subtext">Install the APK on your bank-linked phone and scan the pairing QR code to
                 auto-forward incoming bank credit SMS.</div>
             </div>
@@ -2776,11 +2591,11 @@
             <div style="font-size:0.8rem; color:#94a3b8; margin:0.75rem 0;">
               Enrollment Secret: <code id="smsTokenVal2" style="color:#38bdf8; font-weight:700;">Loading...</code>
               <button class="btn btn-secondary" style="font-size:0.7rem; padding:0.2rem 0.5rem; margin-left:0.5rem;"
-                onclick="copySmsToken()">📋 Copy</button>
+                onclick="copySmsToken()"> Copy</button>
             </div>
             <div style="display:flex; justify-content:center; gap:0.5rem;">
-              <button class="btn btn-secondary" onclick="fetchSmsPairQr()">🔄 Refresh QR</button>
-              <a class="btn btn-success" href="/youpi-sms-gateway.apk" download="youpi-sms-gateway.apk">📲 Download
+              <button class="btn btn-secondary" onclick="fetchSmsPairQr()"> Refresh QR</button>
+              <a class="btn btn-success" href="/youpi-sms-gateway.apk" download="youpi-sms-gateway.apk"> Download
                 Android APK</a>
             </div>
           </div>
@@ -2810,7 +2625,7 @@
 
           <!-- Interactive Test Bank SMS Sender -->
           <div style="background:#090d16; border:1px solid var(--border); border-radius:0.5rem; padding:1rem;">
-            <div style="font-size:0.85rem; font-weight:700; color:#38bdf8; margin-bottom:0.5rem;">🧪 Test Bank SMS
+            <div style="font-size:0.85rem; font-weight:700; color:#38bdf8; margin-bottom:0.5rem;"> Test Bank SMS
               Parser</div>
             <div style="display:flex; gap:0.5rem; margin-bottom:0.5rem; flex-wrap:wrap;">
               <input type="text" id="testSmsSender" value="HDFCBK" placeholder="Sender (e.g. HDFCBK)"
@@ -2832,7 +2647,7 @@
           <div class="card" id="gmailObserverCard">
             <div class="card-header">
               <div>
-                <div class="card-heading">📧 Google Account & Gmail Direct API</div>
+                <div class="card-heading"> Google Account & Gmail Direct API</div>
                 <div class="card-subtext">Official Google OAuth 2.0 automated observation for real-time UPI credit
                   notifications.</div>
               </div>
@@ -2878,7 +2693,7 @@
                   <button type="button" id="btnGoogleDisconnect" class="btn btn-secondary"
                     onclick="disconnectGmailAccount()"
                     style="display:none; font-size:0.8rem; padding:0.65rem 0.9rem; color:#f87171; border-color:#7f1d1d;">
-                    ❌ Disconnect
+                     Disconnect
                   </button>
                 </div>
               </div>
@@ -2913,11 +2728,11 @@
 
             <!-- Secondary Actions -->
             <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.75rem;">
-              <button type="button" class="btn btn-secondary" onclick="testGmailConnection()">🔑 Test Live
+              <button type="button" class="btn btn-secondary" onclick="testGmailConnection()"> Test Live
                 Connection</button>
-              <button type="button" class="btn btn-secondary" onclick="startAutomatedGoogleAuth()">🔄 Re-authorize
+              <button type="button" class="btn btn-secondary" onclick="startAutomatedGoogleAuth()"> Re-authorize
                 Account</button>
-              <button type="button" class="btn btn-secondary" onclick="openGmailGuideModal()">📖 Setup Guide</button>
+              <button type="button" class="btn btn-secondary" onclick="openGmailGuideModal()"> Setup Guide</button>
             </div>
 
             <div id="gmailTestResultBox"
@@ -2927,7 +2742,7 @@
             <details
               style="background:rgba(15,23,42,0.4); border:1px solid #1e293b; border-radius:0.5rem; padding:0.6rem 0.85rem;">
               <summary style="cursor:pointer; font-size:0.78rem; font-weight:700; color:#94a3b8; user-select:none;">
-                ⚙️ Advanced OAuth Credentials &amp; Manual Override (Optional)
+                ️ Advanced OAuth Credentials &amp; Manual Override (Optional)
               </summary>
               <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.85rem;">
                 <div>
@@ -2942,7 +2757,7 @@
                     <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted);">Google OAuth Client
                       Secret</label>
                     <button type="button" class="btn btn-secondary" style="font-size:0.68rem; padding:0.1rem 0.4rem;"
-                      onclick="toggleSecretVisibility()">👁️ Show/Hide</button>
+                      onclick="toggleSecretVisibility()">️ Show/Hide</button>
                   </div>
                   <input type="password" id="gmailClientSecretInput" placeholder="your-google-client-secret"
                     style="width:100%; font-family:monospace; font-size:0.8rem;" />
@@ -2952,7 +2767,7 @@
                     <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted);">Exact Authorized
                       Redirect URI</label>
                     <button type="button" class="btn btn-secondary" style="font-size:0.68rem; padding:0.1rem 0.4rem;"
-                      onclick="copyGmailRedirectUri()">📋 Copy</button>
+                      onclick="copyGmailRedirectUri()"> Copy</button>
                   </div>
                   <input type="text" id="gmailRedirectUriInput" readonly
                     style="width:100%; font-family:monospace; font-size:0.8rem; background:#020617; color:#38bdf8;" />
@@ -2966,7 +2781,7 @@
                 </div>
                 <div>
                   <button type="button" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;"
-                    onclick="saveGmailCredentials()">💾 Save Manual Credentials</button>
+                    onclick="saveGmailCredentials()"> Save Manual Credentials</button>
                 </div>
               </div>
             </details>
@@ -2976,7 +2791,7 @@
           <div class="card">
             <div class="card-header">
               <div>
-                <div class="card-heading">💬 WhatsApp Berry Protocol</div>
+                <div class="card-heading"> WhatsApp Berry Protocol</div>
                 <div class="card-subtext">Automated customer login OTP delivery at checkout.</div>
               </div>
               <span class="badge badge-warning" id="waHeaderBadge">CHECKING...</span>
@@ -2986,7 +2801,7 @@
               style="background:#090d16; border:1px solid var(--border); border-radius:0.75rem; padding:1rem; margin-bottom:1rem;">
               <div id="waLiveStatusDisplay">
                 <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.35rem;">
-                  <span id="waDotIndicator" style="color:#fbbf24;">●</span>
+                  <span id="waDotIndicator" style="color:#fbbf24;"></span>
                   <strong id="waStateTitle" style="color:#fff;">Pairing Standby</strong>
                 </div>
                 <div id="waPhoneDisplay" style="font-size:0.85rem; color:#94a3b8; font-family:monospace;">
@@ -3005,11 +2820,11 @@
             </div>
 
             <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-              <button class="btn btn-primary" id="btnWaConnect" onclick="reconnectWhatsApp()">⚡ Connect / Refresh
+              <button class="btn btn-primary" id="btnWaConnect" onclick="reconnectWhatsApp()"> Connect / Refresh
                 QR</button>
               <button class="btn btn-danger" id="btnWaDisconnect" onclick="disconnectWhatsApp()"
-                style="display:none;">🔌 Disconnect</button>
-              <button class="btn btn-secondary" onclick="fetchWhatsAppStatus(true)">🔄 Check Status</button>
+                style="display:none;"> Disconnect</button>
+              <button class="btn btn-secondary" onclick="fetchWhatsAppStatus(true)"> Check Status</button>
             </div>
           </div>
         </div>
@@ -3027,7 +2842,7 @@
         <div class="card">
           <div class="card-header" style="flex-wrap:wrap; gap:1rem;">
             <div>
-              <div class="card-heading">🚫 Banned Customer Identities</div>
+              <div class="card-heading"> Banned Customer Identities</div>
               <div class="card-subtext">Server-enforced access blocking. Positive identification of fraudulent payment
                 injection or manual administrative bans.</div>
             </div>
@@ -3035,8 +2850,8 @@
               <input type="text" id="bannedSearchInput" placeholder="Search by name, email, or phone..."
                 style="width:240px; font-size:0.82rem; padding:0.45rem 0.75rem;"
                 oninput="filterBannedUsers(this.value)" />
-              <button class="btn btn-secondary" onclick="fetchBannedUsers()">🔄 Refresh</button>
-              <button class="btn btn-danger" onclick="openManualBanModal()">➕ Ban User</button>
+              <button class="btn btn-secondary" onclick="fetchBannedUsers()"> Refresh</button>
+              <button class="btn btn-danger" onclick="openManualBanModal()"> Ban User</button>
             </div>
           </div>
 
@@ -3073,11 +2888,11 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">🚨 Security &amp; Forensic Events Log</div>
+              <div class="card-heading"> Security &amp; Forensic Events Log</div>
               <div class="card-subtext">Real-time immutable security event records preserved with exact raw evidence
                 verbatim.</div>
             </div>
-            <button class="btn btn-secondary" onclick="fetchSecurityEvents()">🔄 Refresh</button>
+            <button class="btn btn-secondary" onclick="fetchSecurityEvents()"> Refresh</button>
           </div>
 
           <div style="overflow-x:auto;">
@@ -3111,11 +2926,11 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-heading">📜 Ban &amp; Unban History Audit Trail</div>
+              <div class="card-heading"> Ban &amp; Unban History Audit Trail</div>
               <div class="card-subtext">Historical chronological audit trail of all automatic bans, unbans, manual bans,
                 and re-bans.</div>
             </div>
-            <button class="btn btn-secondary" onclick="fetchSecurityHistory()">🔄 Refresh</button>
+            <button class="btn btn-secondary" onclick="fetchSecurityHistory()"> Refresh</button>
           </div>
 
           <div style="overflow-x:auto;">
@@ -3150,14 +2965,14 @@
     <div class="modal-box" style="max-width:720px; max-height:85vh; overflow-y:auto;">
       <div
         style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
-        <h3 style="color:#fff; margin:0; font-size:1.15rem;">📖 Official Gmail API &amp; Refresh Token Guide</h3>
-        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeGmailGuideModal()">✕</button>
+        <h3 style="color:#fff; margin:0; font-size:1.15rem;"> Official Gmail API &amp; Refresh Token Guide</h3>
+        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeGmailGuideModal()"></button>
       </div>
       <div style="font-size:0.82rem; color:#cbd5e1; line-height:1.6;">
 
         <div
           style="background:#0f172a; border:1px solid #1e293b; border-radius:0.5rem; padding:0.75rem 1rem; margin-bottom:1rem;">
-          <strong style="color:#38bdf8; display:block; font-size:0.9rem; margin-bottom:0.25rem;">⚡ How to get your
+          <strong style="color:#38bdf8; display:block; font-size:0.9rem; margin-bottom:0.25rem;"> How to get your
             Google Refresh Token (Choose either method):</strong>
           <span style="color:#94a3b8; font-size:0.78rem;">Both methods work 100% reliably. Method 1 is automated
             1-click; Method 2 uses Google's official OAuth Playground.</span>
@@ -3176,8 +2991,8 @@
             <li>Under <em>OAuth consent screen</em> &gt; <em>Test users</em>, ensure your personal Gmail address is
               added.</li>
             <li>In YOUPI Admin Panel, enter your <strong>Client ID</strong> and <strong>Client Secret</strong>, then
-              click <strong>💾 Save Credentials</strong>.</li>
-            <li>Click the <strong>🔗 Authorize OAuth</strong> button. A Google sign-in window will open.</li>
+              click <strong>Save Credentials</strong>.</li>
+            <li>Click the <strong>Authorize OAuth</strong> button. A Google sign-in window will open.</li>
             <li>Log into your Gmail account, grant read-only permissions, and complete consent.</li>
             <li>YOUPI will automatically capture and save the offline refresh token into your database!</li>
           </ol>
@@ -3191,7 +3006,7 @@
             <li>Open <a href="https://developers.google.com/oauthplayground" target="_blank"
                 style="color:#38bdf8; text-decoration:underline;">Google OAuth 2.0 Playground
                 (developers.google.com/oauthplayground)</a> in a new tab.</li>
-            <li>Click the <strong>⚙️ Gear Icon (OAuth 2.0 configuration)</strong> at the top right of the page.</li>
+            <li>Click the <strong>Settings Menu (OAuth 2.0 configuration)</strong> at the top right of the page.</li>
             <li>Check the box: <strong>"Use your own OAuth credentials"</strong>.</li>
             <li>Paste your <strong>OAuth Client ID</strong> and <strong>OAuth Client Secret</strong> into the fields
               that appear.</li>
@@ -3211,13 +3026,13 @@
               <code>1//...</code>).
             </li>
             <li>Paste the refresh token into the <strong>Google Refresh Token (Offline Access)</strong> box in YOUPI and
-              click <strong>💾 Save Credentials</strong>!</li>
+              click <strong>Save Credentials</strong>!</li>
           </ol>
         </div>
 
         <div
           style="background:rgba(245,158,11,0.1); border:1px solid #d97706; border-radius:0.5rem; padding:0.75rem; font-size:0.75rem; color:#fde68a;">
-          <strong>⚠️ Google Cloud Console Setup Note:</strong><br>
+          <strong>Note: Google Cloud Console Setup</strong><br>
           Make sure the <strong>Gmail API</strong> is enabled in <em>APIs &amp; Services &gt; Library</em> and the OAuth
           consent screen publishing status is set to "Testing" with your Gmail added as a Test User.
         </div>
@@ -3239,7 +3054,7 @@
       <div
         style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; border-bottom:1px solid #1e293b; padding-bottom:1rem;">
         <div style="display:flex; align-items:center; gap:0.6rem;">
-          <span style="font-size:1.5rem;">🚨</span>
+          <span style="font-size:1.5rem;"></span>
           <div>
             <h3 style="color:#f87171; margin:0; font-size:1.25rem; font-weight:800; letter-spacing:-0.02em;">Forensic
               Security &amp; Ban Evidence Dossier</h3>
@@ -3247,7 +3062,7 @@
               attempt</div>
           </div>
         </div>
-        <button class="btn btn-secondary" style="padding:0.35rem 0.65rem;" onclick="closeBanDetailsModal()">✕</button>
+        <button class="btn btn-secondary" style="padding:0.35rem 0.65rem;" onclick="closeBanDetailsModal()"></button>
       </div>
 
       <div id="banDetailsModalBody">
@@ -3260,7 +3075,7 @@
         <div style="display:flex; gap:0.75rem;">
           <button class="btn btn-secondary" onclick="closeBanDetailsModal()">Close</button>
           <button id="btnModalUnbanTrigger" class="btn btn-success"
-            style="background:#059669; border-color:#059669; font-weight:700;" onclick="handleModalUnbanClick()">🔓
+            style="background:#059669; border-color:#059669; font-weight:700;" onclick="handleModalUnbanClick()">
             Unban Customer</button>
         </div>
       </div>
@@ -3274,9 +3089,9 @@
       <div
         style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
         <h3 style="color:#34d399; margin:0; display:flex; align-items:center; gap:0.5rem; font-size:1.15rem;">
-          <span>🔓</span> Restore Customer Access (Unban)
+          <span></span> Restore Customer Access (Unban)
         </h3>
-        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeUnbanModal()">✕</button>
+        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeUnbanModal()"></button>
       </div>
 
       <p style="font-size:0.88rem; color:#cbd5e1; line-height:1.6; margin-bottom:1.25rem;">
@@ -3321,9 +3136,9 @@
       <div
         style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #1e293b; padding-bottom:0.75rem;">
         <h3 style="color:#f87171; margin:0; display:flex; align-items:center; gap:0.5rem; font-size:1.15rem;">
-          <span>🚫</span> Manually Ban Abusive Customer
+          <span></span> Manually Ban Abusive Customer
         </h3>
-        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeManualBanModal()">✕</button>
+        <button class="btn btn-secondary" style="padding:0.25rem 0.5rem;" onclick="closeManualBanModal()"></button>
       </div>
 
       <div style="margin-bottom:1rem;">
@@ -3401,43 +3216,38 @@
         .replace(/'/g, '&#039;');
     }
 
-    // --- REAL LIGHT / DARK THEME CONTROLLER ---
-    let manualThemeOverride = null;
-
-    function updateThemeForSection(sectionId) {
-      if (manualThemeOverride !== null) {
-        applyTheme(manualThemeOverride);
-        return;
-      }
-      // Automatically real dark mode in developer settings, bright white mode in operations & store settings
-      if (sectionId === 'developerHub') {
-        applyTheme('dark');
-      } else {
-        applyTheme('light');
-      }
+    // --- GLOBAL ENTERPRISE LIGHT / DARK THEME CONTROLLER ---
+    function getStoredTheme() {
+      try {
+        const stored = localStorage.getItem('paygate_theme');
+        if (stored === 'light' || stored === 'dark') return stored;
+      } catch (e) { }
+      return 'dark'; // Clean enterprise dark default
     }
 
     function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      document.body.setAttribute('data-theme', theme);
+      const mode = (theme === 'light') ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', mode);
+      document.body.setAttribute('data-theme', mode);
+      try {
+        localStorage.setItem('paygate_theme', mode);
+      } catch (e) { }
 
       const icon = document.getElementById('headerThemeIcon');
       const text = document.getElementById('headerThemeText');
-      if (theme === 'dark') {
-        if (icon) icon.textContent = '🌙';
-        if (text) text.textContent = 'Real Dark';
-      } else {
-        if (icon) icon.textContent = '☀️';
-        if (text) text.textContent = 'Bright White';
-      }
+      if (icon) icon.textContent = '';
+      if (text) text.textContent = (mode === 'dark') ? 'Dark Mode' : 'Light Mode';
     }
 
     function toggleThemeManual() {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      manualThemeOverride = next;
+      const current = document.documentElement.getAttribute('data-theme') || getStoredTheme();
+      const next = (current === 'dark') ? 'light' : 'dark';
       applyTheme(next);
-      showAdminToast(`Switched to ${next === 'dark' ? 'Real Dark Mode' : 'Bright White Mode'}`);
+      showAdminToast(`Switched to ${next === 'dark' ? 'Dark Mode' : 'Light Mode'}`);
+    }
+
+    function updateThemeForSection(sectionId) {
+      applyTheme(getStoredTheme());
     }
 
     // --- NAVIGATION CONTROLLER: 3 HIGH-LEVEL SECTIONS ---
@@ -3492,31 +3302,31 @@
       let items = [];
       if (sectionId === 'operations') {
         items = [
-          { id: 'subViewOpsLive', label: '📊 Live Monitor & Slots', viewId: 'subViewOpsLive' },
-          { id: 'subViewOpsCounter', label: '🏪 Counter Desk (POS Cashier)', viewId: 'subViewOpsCounter' },
-          { id: 'subViewOpsTransactions', label: '💳 Transactions Ledger', viewId: 'subViewOpsTransactions' },
-          { id: 'subViewOpsObservers', label: '📡 Payment Observers Status', viewId: 'subViewOpsObservers' }
+          { id: 'subViewOpsLive', label: 'Live Monitor & Slots', viewId: 'subViewOpsLive' },
+          { id: 'subViewOpsCounter', label: 'Counter Desk (POS)', viewId: 'subViewOpsCounter' },
+          { id: 'subViewOpsTransactions', label: 'Transactions Ledger', viewId: 'subViewOpsTransactions' },
+          { id: 'subViewOpsObservers', label: 'Observer Status', viewId: 'subViewOpsObservers' }
         ];
       } else if (sectionId === 'storeSettings') {
         items = [
-          { id: 'subViewStoreBrand', label: '🎨 Brand Identity & Live Mockup', viewId: 'subViewStoreBrand' },
-          { id: 'subViewStoreVpa', label: '⚡ Receiving Accounts (VPAs)', viewId: 'subViewStoreVpa' },
-          { id: 'subViewStoreModes', label: '🏬 Selling Modes & Modalities', viewId: 'subViewStoreModes' }
+          { id: 'subViewStoreBrand', label: 'Brand Identity & Preview', viewId: 'subViewStoreBrand' },
+          { id: 'subViewStoreVpa', label: 'Receiving Accounts (VPA)', viewId: 'subViewStoreVpa' },
+          { id: 'subViewStoreModes', label: 'Selling Modes', viewId: 'subViewStoreModes' }
         ];
       } else if (sectionId === 'developerHub') {
         items = [
-          { id: 'subViewDevSimulator', label: '🎮 Payment Simulator', viewId: 'subViewDevSimulator' },
-          { id: 'subViewDevSupervisor', label: '🖥️ System Supervisor & Store (5000)', viewId: 'subViewDevSupervisor' },
-          { id: 'subViewDevCloudflare', label: '☁️ Cloudflare Tunnel', viewId: 'subViewDevCloudflare' },
-          { id: 'subViewDevWebhooks', label: '🔐 Webhooks & Secrets', viewId: 'subViewDevWebhooks' },
-          { id: 'subViewDevAndroid', label: '📱 Android SMS Hub', viewId: 'subViewDevAndroid' },
-          { id: 'subViewDevProtocols', label: '📧 Gmail & WhatsApp Protocols', viewId: 'subViewDevProtocols' }
+          { id: 'subViewDevSimulator', label: 'Payment Simulator', viewId: 'subViewDevSimulator' },
+          { id: 'subViewDevSupervisor', label: 'Process Supervisor', viewId: 'subViewDevSupervisor' },
+          { id: 'subViewDevCloudflare', label: 'Cloudflare Tunnel', viewId: 'subViewDevCloudflare' },
+          { id: 'subViewDevWebhooks', label: 'Webhooks & API Keys', viewId: 'subViewDevWebhooks' },
+          { id: 'subViewDevAndroid', label: 'Android SMS Gateway', viewId: 'subViewDevAndroid' },
+          { id: 'subViewDevProtocols', label: 'Gmail & WhatsApp Protocols', viewId: 'subViewDevProtocols' }
         ];
       } else if (sectionId === 'security') {
         items = [
-          { id: 'subViewSecBanned', label: '🚫 Banned Users', viewId: 'subViewSecBanned' },
-          { id: 'subViewSecEvents', label: '🚨 Security Events', viewId: 'subViewSecEvents' },
-          { id: 'subViewSecHistory', label: '📜 Ban History', viewId: 'subViewSecHistory' }
+          { id: 'subViewSecBanned', label: 'Banned Entities', viewId: 'subViewSecBanned' },
+          { id: 'subViewSecEvents', label: 'Security Audit Events', viewId: 'subViewSecEvents' },
+          { id: 'subViewSecHistory', label: 'Enforcement History', viewId: 'subViewSecHistory' }
         ];
       }
 
@@ -3524,6 +3334,7 @@
       items.forEach(item => {
         const btn = document.createElement('button');
         btn.className = `sub-nav-pill ${item.id === defaultSub ? 'active' : ''}`;
+        btn.setAttribute('data-subtab', item.id);
         btn.textContent = item.label;
         btn.onclick = () => switchSubView(sectionId, item.id);
         subNav.appendChild(btn);
@@ -3537,8 +3348,12 @@
 
       // Update pill styles
       document.querySelectorAll('.sub-nav-pill').forEach(p => {
-        p.classList.remove('active');
-        if (p.onclick.toString().includes(subViewId)) p.classList.add('active');
+        const matches = p.getAttribute('data-subtab') === subViewId || (p.onclick && p.onclick.toString().includes(subViewId));
+        if (matches) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
       });
 
       // Hide all sub-views in current section and show target
@@ -3590,7 +3405,7 @@
       } catch (e) {
         console.warn('loadServices error:', e);
         const tbody = document.getElementById('servicesTableBody');
-        if (tbody) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#ef4444; padding:1.5rem;">⚠️ Supervisor API unavailable (Port 8090). Ensure services are running.</td></tr>`;
+        if (tbody) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#ef4444; padding:1.5rem;">️ Supervisor API unavailable (Port 8090). Ensure services are running.</td></tr>`;
       }
     }
 
@@ -3607,7 +3422,7 @@
         const isRunning = s.status === 'RUNNING';
         const isStarting = s.status === 'STARTING';
         const badgeClass = isRunning ? 'badge-success' : (isStarting ? 'badge-warning' : 'badge-danger');
-        const statusIcon = isRunning ? '🟢' : (isStarting ? '🟡' : '🔴');
+        const statusIcon = isRunning ? '' : (isStarting ? '' : '');
 
         const upSec = s.uptimeSeconds || 0;
         const uptimeStr = isRunning
@@ -3633,7 +3448,7 @@
                 <button class="btn btn-success" style="padding:0.3rem 0.65rem; font-size:0.75rem;" onclick="startService('${s.id}')">▶ Start</button>
               ` : `
                 <button class="btn btn-danger" style="padding:0.3rem 0.65rem; font-size:0.75rem;" onclick="stopService('${s.id}')">⏹ Stop</button>
-                <button class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;" onclick="restartService('${s.id}')">🔄 Restart</button>
+                <button class="btn btn-secondary" style="padding:0.3rem 0.65rem; font-size:0.75rem;" onclick="restartService('${s.id}')"> Restart</button>
               `}
               ${isRunning && s.port ? `
                 <a href="http://localhost:${s.port}" target="_blank" class="btn btn-secondary" style="padding:0.3rem 0.55rem; font-size:0.75rem; text-decoration:none;" title="Open in browser">↗</a>
@@ -3657,12 +3472,12 @@
       if (hBadge && hText) {
         if (isRunning) {
           hBadge.className = 'store-switch-badge is-online';
-          hText.textContent = 'Store (5000): ONLINE';
-          hDot.textContent = '🟢';
+          hText.textContent = 'Store [Port 5000]: ONLINE';
+          hDot.textContent = '';
         } else {
           hBadge.className = 'store-switch-badge is-offline';
-          hText.textContent = 'Store (5000): DISABLED';
-          hDot.textContent = '🔴';
+          hText.textContent = 'Store [Port 5000]: DISABLED';
+          hDot.textContent = '';
         }
       }
 
@@ -3673,15 +3488,15 @@
       if (cBadge && btnToggle) {
         if (isRunning) {
           cBadge.className = 'badge badge-success';
-          cBadge.textContent = '🟢 ONLINE & ACTIVE (PORT 5000)';
+          cBadge.textContent = '[ONLINE] (PORT 5000)';
           btnToggle.className = 'btn btn-danger';
-          btnToggle.innerHTML = '⏹ Disable YOUPI Store (Port 5000)';
+          btnToggle.innerHTML = 'Disable YOUPI Store (Port 5000)';
           if (btnLink) btnLink.style.display = 'inline-flex';
         } else {
           cBadge.className = 'badge badge-danger';
-          cBadge.textContent = '🔴 DISABLED (PORT 5000 FREE)';
+          cBadge.textContent = '[DISABLED] (PORT 5000 FREE)';
           btnToggle.className = 'btn btn-success';
-          btnToggle.innerHTML = '▶ Enable YOUPI Store (Port 5000)';
+          btnToggle.innerHTML = 'Enable YOUPI Store (Port 5000)';
           if (btnLink) btnLink.style.display = 'none';
         }
       }
@@ -4022,14 +3837,14 @@
         <td><strong style="color:#34d399; font-size:1.15rem;">₹${(Number(p.amountPaise) / 100).toFixed(2)}</strong></td>
         <td>
           <span class="badge ${p.method === 'CASH_COUNTER' ? 'badge-success' : 'badge-info'}">
-            ${p.method === 'CASH_COUNTER' ? '💵 Cash at Till' : '💳 Card at POS'}
+            ${p.method === 'CASH_COUNTER' ? 'Cash at Counter' : 'Card at POS'}
           </span>
         </td>
         <td>${new Date(p.createdAt).toLocaleTimeString()}</td>
         <td>
           <div style="display:flex; gap:0.4rem;">
-            <button class="btn btn-success" style="padding:0.35rem 0.75rem; font-size:0.78rem;" onclick="confirmCounterPayment('${p.id}', '${p.method}')">✓ Approve</button>
-            <button class="btn btn-danger" style="padding:0.35rem 0.75rem; font-size:0.78rem;" onclick="declineCounterPayment('${p.id}', '${p.method}')">✕ Decline</button>
+            <button class="btn btn-success" style="padding:0.35rem 0.75rem; font-size:0.78rem;" onclick="confirmCounterPayment('${p.id}', '${p.method}')">[SINGLE] Approve</button>
+            <button class="btn btn-danger" style="padding:0.35rem 0.75rem; font-size:0.78rem;" onclick="declineCounterPayment('${p.id}', '${p.method}')"> Decline</button>
           </div>
         </td>
       </tr>
@@ -4124,9 +3939,9 @@
           if (p.status === 'SUCCESS') {
             const tag = p.verificationTag || (p.verificationLevel >= 2 ? 'Dual Verification' : 'Single Verification');
             if (p.verificationLevel >= 2) {
-              verifyBadge = `<span class="badge badge-success">✓✓ ${tag}</span>`;
+              verifyBadge = `<span class="badge badge-success">[DUAL] ${tag}</span>`;
             } else {
-              verifyBadge = `<span class="badge badge-info">✓ ${tag}</span>`;
+              verifyBadge = `<span class="badge badge-info">[SINGLE] ${tag}</span>`;
             }
           }
 
@@ -4302,7 +4117,7 @@
           const appTitle = branding.appName || 'PayGate';
           setVal('settingAppName', appTitle);
           const brandTitleEl = document.getElementById('headerBrandTitle');
-          if (brandTitleEl) brandTitleEl.textContent = `🛡️ ${appTitle}`;
+          if (brandTitleEl) brandTitleEl.textContent = `️ ${appTitle}`;
           setVal('settingLogoUrl', branding.logoUrl);
           setVal('settingSidebarNotice', branding.sidebarNotice);
           setVal('settingFooterGuarantee', branding.footerGuarantee);
@@ -4372,11 +4187,11 @@
       if (activeData && activeData.upiId && activeData.isActive) {
         if (idEl) idEl.textContent = activeData.upiId;
         if (payeeEl) payeeEl.textContent = `Payee: ${activeData.payeeName || 'Store'}`;
-        if (headerVpa) headerVpa.textContent = `VPA: ${activeData.upiId}`;
+        if (headerVpa) headerVpa.textContent = activeData.upiId;
       } else {
         if (idEl) idEl.textContent = 'No VPA currently active';
         if (payeeEl) payeeEl.textContent = 'Add or activate a VPA below to accept payments';
-        if (headerVpa) headerVpa.textContent = 'NO ACTIVE VPA';
+        if (headerVpa) headerVpa.textContent = 'None';
       }
     }
 
@@ -4390,7 +4205,7 @@
 
       tbody.innerHTML = accounts.map(a => {
         const statusBadge = a.isActive
-          ? '<span class="badge badge-info" style="font-weight:800; font-size:0.78rem;">● ACTIVE</span>'
+          ? '<span class="badge badge-info" style="font-weight:800; font-size:0.78rem;"> ACTIVE</span>'
           : '<span class="badge badge-neutral" style="font-size:0.75rem;">Disabled</span>';
 
         const slotBadge = a.isSlotBusy
@@ -4605,15 +4420,15 @@
         if (btnProd) { btnProd.style.borderColor = '#10b981'; btnProd.style.background = '#0f172a'; }
         if (badgeLoc) badgeLoc.style.display = 'none';
         if (badgeProd) badgeProd.style.display = 'inline-block';
-        if (badgeDisplay) { badgeDisplay.textContent = '🌍 PRODUCTION MODE'; badgeDisplay.className = 'badge badge-success'; }
-        if (headerBadge) { headerBadge.textContent = '🌍 PRODUCTION'; headerBadge.className = 'badge badge-success'; }
+        if (badgeDisplay) { badgeDisplay.textContent = 'PRODUCTION MODE'; badgeDisplay.className = 'badge badge-success'; }
+        if (headerBadge) { headerBadge.textContent = 'PRODUCTION'; headerBadge.className = 'badge badge-success'; }
       } else {
         if (btnLoc) { btnLoc.style.borderColor = '#38bdf8'; btnLoc.style.background = '#0f172a'; }
         if (btnProd) { btnProd.style.borderColor = 'var(--border)'; btnProd.style.background = '#0b1120'; }
         if (badgeLoc) badgeLoc.style.display = 'inline-block';
         if (badgeProd) badgeProd.style.display = 'none';
-        if (badgeDisplay) { badgeDisplay.textContent = '💻 LOCALHOST MODE'; badgeDisplay.className = 'badge badge-info'; }
-        if (headerBadge) { headerBadge.textContent = '💻 LOCALHOST'; headerBadge.className = 'badge badge-info'; }
+        if (badgeDisplay) { badgeDisplay.textContent = 'LOCALHOST MODE'; badgeDisplay.className = 'badge badge-info'; }
+        if (headerBadge) { headerBadge.textContent = 'LOCALHOST'; headerBadge.className = 'badge badge-info'; }
       }
 
       updateCloudflarePreview();
@@ -4698,8 +4513,8 @@
           </div>
         </div>
         <div style="display:flex; gap:0.5rem;">
-          <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyText('${escapeHtml(r.hostname || '')}', 'Hostname copied to clipboard!')" ${!r.hostname ? 'disabled' : ''}>📋 Copy Hostname</button>
-          <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyText('${escapeHtml(r.serviceUrl)}', 'Service URL copied to clipboard!')">📋 Copy Service URL</button>
+          <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyText('${escapeHtml(r.hostname || '')}', 'Hostname copied to clipboard!')" ${!r.hostname ? 'disabled' : ''}> Copy Hostname</button>
+          <button class="btn btn-secondary" style="font-size:0.75rem;" onclick="copyText('${escapeHtml(r.serviceUrl)}', 'Service URL copied to clipboard!')"> Copy Service URL</button>
         </div>
       </div>
     `).join('');
@@ -4824,7 +4639,7 @@
       if (!badge) return;
 
       if (status.running) {
-        badge.textContent = '🟢 RUNNING';
+        badge.textContent = '[RUNNING]';
         badge.style.background = '#065f46';
         badge.style.color = '#34d399';
         if (btnStart) btnStart.style.display = 'none';
@@ -4833,7 +4648,7 @@
         const upStr = upSec >= 60 ? `${Math.floor(upSec / 60)}m ${upSec % 60}s` : `${upSec}s`;
         if (pidInfo) pidInfo.textContent = `PID: ${status.pid} | Uptime: ${upStr}`;
       } else {
-        badge.textContent = '⚪ STOPPED';
+        badge.textContent = '[STOPPED]';
         badge.style.background = '#334155';
         badge.style.color = '#94a3b8';
         if (btnStart) btnStart.style.display = 'inline-flex';
@@ -5007,10 +4822,10 @@
         if (resBox) {
           if (res.ok) {
             resBox.style.color = '#34d399';
-            resBox.textContent = `✅ Parsed successfully! Amount: ₹${data.event?.amountPaise ? (data.event.amountPaise / 100) : 'N/A'}, Ref: ${data.event?.refId || 'N/A'}`;
+            resBox.textContent = `Parsed successfully: Amount: ₹${data.event?.amountPaise ? (data.event.amountPaise / 100) : 'N/A'}, Ref: ${data.event?.refId || 'N/A'}`;
           } else {
             resBox.style.color = '#f87171';
-            resBox.textContent = `⚠️ Error: ${data.error || 'Failed to parse'}`;
+            resBox.textContent = `Error: ${data.error || 'Failed to parse'}`;
           }
         }
       } catch (e) {
@@ -5071,7 +4886,7 @@
           if (banner) banner.style.display = 'none';
 
           fetchGmailCredentials().then(() => {
-            showAdminToast(`🎉 Google Account Connected: ${email || 'Verified'}! Live UPI observer active.`);
+            showAdminToast(`Google Account Connected: ${email || 'Verified'}! Live UPI observer active.`);
           });
         };
 
@@ -5176,9 +4991,9 @@
           if (heroDot) heroDot.style.background = '#10b981';
           if (heroTitle) heroTitle.textContent = 'Google Account Connected & Active';
           if (heroDesc) {
-            heroDesc.innerHTML = `✅ Authenticated as <strong style="color:#38bdf8; font-family:monospace;">${escapeHtml(connectedEmail || 'Authorized Account')}</strong>. Zero-delay mailbox polling active for incoming UPI payment notifications.`;
+            heroDesc.innerHTML = `Authenticated as <strong style="color:#38bdf8; font-family:monospace;">${escapeHtml(connectedEmail || 'Authorized Account')}</strong>. Zero-delay mailbox polling active for incoming UPI payment notifications.`;
           }
-          if (authBtnLabel) authBtnLabel.textContent = '🔄 Re-authorize Account';
+          if (authBtnLabel) authBtnLabel.textContent = 'Re-authorize Account';
           if (disconnectBtn) disconnectBtn.style.display = 'inline-flex';
         } else {
           if (heroDot) heroDot.style.background = '#ef4444';
@@ -5263,7 +5078,7 @@
             box.style.border = '1px solid #059669';
             box.style.color = '#34d399';
             box.innerHTML = `
-            <div style="font-weight:700; margin-bottom:0.35rem; color:#34d399;">✅ GOOGLE API VERIFICATION SUCCESSFUL</div>
+            <div style="font-weight:700; margin-bottom:0.35rem; color:#34d399;"> GOOGLE API VERIFICATION SUCCESSFUL</div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.25rem; font-size:0.78rem; font-family:monospace;">
               <div><strong>AUTHENTICATED:</strong> <span style="color:#10b981;">YES</span></div>
               <div><strong>ACCOUNT:</strong> ${escapeHtml(data.emailAddress || 'Authorized')}</div>
@@ -5277,7 +5092,7 @@
             box.style.background = 'rgba(239, 68, 68, 0.1)';
             box.style.border = '1px solid #dc2626';
             box.style.color = '#f87171';
-            box.innerHTML = `⚠️ <strong>Connection Test Notice:</strong> ${escapeHtml(data.error || 'Token expired or invalid. Please click Connect with Google to re-authorize.')}`;
+            box.innerHTML = `️ <strong>Connection Test Notice:</strong> ${escapeHtml(data.error || 'Token expired or invalid. Please click Connect with Google to re-authorize.')}`;
           }
         }
       } catch (e) {
@@ -5317,7 +5132,7 @@
           if (phoneDisplay) phoneDisplay.innerHTML = `Linked Phone: <strong style="color:#34d399;">${data.phoneNumber || 'Linked Device'}</strong>`;
           if (qrBox) qrBox.style.display = 'none';
           if (btnDisconnect) btnDisconnect.style.display = 'inline-block';
-          if (btnConnect) btnConnect.innerText = '🔄 Re-Pair Device';
+          if (btnConnect) btnConnect.innerText = 'Re-Pair Device';
         } else if (data.status === 'QR_READY') {
           if (badge) { badge.className = 'badge badge-warning'; badge.innerText = 'QR READY'; }
           if (dot) dot.style.color = '#fbbf24';
@@ -5325,7 +5140,7 @@
           if (phoneDisplay) phoneDisplay.innerText = 'Awaiting pairing scan from merchant WhatsApp handset';
           if (qrBox) qrBox.style.display = 'inline-block';
           if (btnDisconnect) btnDisconnect.style.display = 'none';
-          if (btnConnect) btnConnect.innerText = '🔄 Refresh QR Code';
+          if (btnConnect) btnConnect.innerText = 'Refresh QR Code';
 
           if (data.qrCode && qrImg && qrPlaceholder) {
             let qrSrc = data.qrCode;
@@ -5370,7 +5185,7 @@
             qrPlaceholder.innerText = 'Click "Connect WhatsApp" to pair device';
           }
           if (btnDisconnect) btnDisconnect.style.display = 'none';
-          if (btnConnect) btnConnect.innerText = '⚡ Connect WhatsApp';
+          if (btnConnect) btnConnect.innerText = 'Connect WhatsApp';
         }
 
         if (isManual) showAdminToast('WhatsApp session status: ' + data.status);
@@ -5425,7 +5240,7 @@
         if (newlyAdded.length > 0 && isInitialCounterPollDone) {
           newlyAdded.forEach(p => {
             const isCash = p.method === 'CASH_COUNTER';
-            showAdminToast(`🔔 Counter Payment Request: ${isCash ? '💵 Cash at Till' : '💳 Card at POS'} for ₹${p.amount} (Order #${p.orderId})`);
+            showAdminToast(`Counter Payment Request: ${isCash ? 'Cash at Counter' : 'Card at POS'} for ₹${p.amount} (Order #${p.orderId})`);
           });
         }
         isInitialCounterPollDone = true;
@@ -5447,9 +5262,9 @@
             const isCash = payload?.method === 'CASH_COUNTER';
             const amt = payload?.amountPaise ? `₹${(Number(payload.amountPaise) / 100).toFixed(2)}` : '';
             const ord = payload?.orderId ? `(Order #${payload.orderId})` : '';
-            showAdminToast(`🔔 Cashier Prompt: Customer requested ${isCash ? '💵 Cash at Till' : '💳 Card at POS'} ${amt} ${ord}!`);
+            showAdminToast(`Cashier Prompt: Customer requested ${isCash ? 'Cash at Counter' : 'Card at POS'} ${amt} ${ord}!`);
           } catch (e) {
-            showAdminToast('🔔 Cashier Prompt: In-store customer selected Cash/Card payment!');
+            showAdminToast('Cashier Prompt: In-store customer selected Cash/Card payment!');
           }
         });
         adminSse.addEventListener('status_change', () => {
@@ -5482,7 +5297,7 @@
       dock.innerHTML = payments.map(p => {
         const isMinimized = minimizedCounterIds.has(p.id);
         const isCash = p.method === 'CASH_COUNTER';
-        const methodLabel = isCash ? '💵 Cash at Till' : '💳 Card at Counter';
+        const methodLabel = isCash ? 'Cash at Counter' : 'Card at Counter';
         const badgeClass = isCash ? 'cashier-badge-cash' : 'cashier-badge-card';
         const orderIdStr = p.orderId ? (String(p.orderId).startsWith('#') ? p.orderId : `#${p.orderId}`) : `#${p.id.slice(0, 8)}`;
         const amountStr = `₹${p.amount}`;
@@ -5499,7 +5314,7 @@
               </div>
               <div style="display:flex; align-items:center; gap:4px;">
                 <button type="button" class="cashier-btn-minimize" onclick="toggleMinimizeCard('${p.id}')">▲</button>
-                <button type="button" class="cashier-btn-accept" style="padding:4px 8px; font-size:11px;" onclick="confirmCounterPayment('${p.id}', '${p.method}')">✓ Accept</button>
+                <button type="button" class="cashier-btn-accept" style="padding:4px 8px; font-size:11px;" onclick="confirmCounterPayment('${p.id}', '${p.method}')">[SINGLE] Accept</button>
               </div>
             </div>
           </div>
@@ -5527,8 +5342,8 @@
               </div>
             </div>
             <div class="cashier-modal-actions">
-              <button type="button" class="cashier-btn-accept" onclick="confirmCounterPayment('${p.id}', '${p.method}')">✓ Confirm &amp; Accept</button>
-              <button type="button" class="cashier-btn-decline" onclick="declineCounterPayment('${p.id}', '${p.method}')">✕ Decline</button>
+              <button type="button" class="cashier-btn-accept" onclick="confirmCounterPayment('${p.id}', '${p.method}')">[SINGLE] Confirm &amp; Accept</button>
+              <button type="button" class="cashier-btn-decline" onclick="declineCounterPayment('${p.id}', '${p.method}')"> Decline</button>
             </div>
           </div>
         </div>
@@ -5548,7 +5363,7 @@
       t.style.background = isSuccess ? '#065f46' : '#991b1b';
       t.style.color = '#ffffff';
       t.style.border = isSuccess ? '1px solid #10b981' : '1px solid #ef4444';
-      t.innerHTML = `${isSuccess ? '✓' : '⚠️'} ${escapeHtml(msg)}`;
+      t.innerHTML = `${isSuccess ? '' : '️'} ${escapeHtml(msg)}`;
       t.style.transform = 'translateY(0)';
       t.style.opacity = '1';
       clearTimeout(t._timer);
@@ -5628,13 +5443,13 @@
           if (badge) {
             if (currentFalseNarrativeMode === 'GREEN') {
               badge.className = 'badge badge-success';
-              badge.textContent = `🟢 GREEN (WORKING) · EXPIRES IN ${timeStr}`;
+              badge.textContent = `GREEN (NORMAL) · EXPIRES IN ${timeStr}`;
             } else if (currentFalseNarrativeMode === 'YELLOW') {
               badge.className = 'badge badge-warning';
-              badge.textContent = `🟡 YELLOW (EXTRA PROCESSING) · EXPIRES IN ${timeStr}`;
+              badge.textContent = `YELLOW (PROCESSING) · EXPIRES IN ${timeStr}`;
             } else {
               badge.className = 'badge badge-danger';
-              badge.textContent = `🔴 RED (DOWN) · EXPIRES IN ${timeStr}`;
+              badge.textContent = `RED (DOWN) · EXPIRES IN ${timeStr}`;
             }
           }
         };
@@ -5649,7 +5464,7 @@
         }
         if (badge) {
           badge.className = 'badge badge-info';
-          badge.textContent = '⚪ OFF · REAL SERVER STATUS';
+          badge.textContent = 'REAL SERVER STATUS';
         }
       }
     }
@@ -5729,7 +5544,7 @@
           const data = await res.json();
           updateTestModeUI(data.enabled, data.testModeUntil, data.remainingSeconds);
           showAdminToast(enabled
-            ? '🧪 Test Mode Enabled (10-minute window). Automatic banning is disabled.'
+            ? ' Test Mode Enabled (10-minute window). Automatic banning is disabled.'
             : 'Test Mode disabled. Automatic ban system restored.');
         } else {
           showAdminToast('Failed to update Test Mode state', false);
@@ -5780,7 +5595,7 @@
         if (banner) banner.style.display = 'block';
         if (section) section.style.display = 'block';
         if (banText) {
-          banText.innerHTML = '🛡️ Automatic Ban System: <strong style="color:#ef4444;">DISABLED (Test Mode Active)</strong>';
+          banText.innerHTML = 'Automatic Ban System: <strong style="color:#ef4444;">DISABLED (Test Mode Active)</strong>';
         }
 
         const updateTimer = () => {
@@ -5800,7 +5615,7 @@
           if (badge) {
             badge.style.background = '#b45309';
             badge.style.color = '#fef3c7';
-            badge.textContent = `🔴 [ ON ] TEST MODE (${timeStr})`;
+            badge.textContent = `[TEST MODE: ON] (${timeStr})`;
           }
         };
 
@@ -5818,7 +5633,7 @@
           badge.textContent = '[ OFF ] Test Mode';
         }
         if (banText) {
-          banText.innerHTML = '🛡️ Automatic Ban System: <strong style="color:#22c55e;">ENABLED (Normal)</strong>';
+          banText.innerHTML = 'Automatic Ban System: <strong style="color:#22c55e;">ENABLED (Normal)</strong>';
         }
       }
     }
@@ -5908,7 +5723,7 @@
         if (data.status === 'VERIFIED') {
           showAdminToast(`Observation VERIFIED! Attributed to Order #${data.session?.orderId || 'Active'}`);
         } else if (data.status === 'REJECTED' && (data.reason === 'FRAUDULENT_PAYMENT_INJECTION' || data.failingCondition === 'FRAUDULENT_PAYMENT_INJECTION' || data.stages?.stage5?.reason === 'FRAUDULENT_PAYMENT_INJECTION')) {
-          showAdminToast('🚨 FRAUD DETECTED! Customer automatically BANNED and session terminated.', false);
+          showAdminToast(' FRAUD DETECTED! Customer automatically BANNED and session terminated.', false);
           if (typeof fetchBannedUsers === 'function') fetchBannedUsers();
         } else if (data.status === 'SUSPICIOUS') {
           showAdminToast('Observation flagged as SUSPICIOUS!', false);
@@ -6102,12 +5917,12 @@
           const btnEnable = document.getElementById('simBtnEnableTestMode');
           if (data.enabled) {
             if (statusEl) {
-              statusEl.innerHTML = `<span style="color:#22c55e;">● ACTIVE</span> (${Math.floor(data.remainingSeconds / 60)}m ${data.remainingSeconds % 60}s)`;
+              statusEl.innerHTML = `<span style="color:#22c55e;"> ACTIVE</span> (${Math.floor(data.remainingSeconds / 60)}m ${data.remainingSeconds % 60}s)`;
             }
             if (btnEnable) btnEnable.style.display = 'none';
           } else {
             if (statusEl) {
-              statusEl.innerHTML = `<span style="color:#ef4444;">● OFF / EXPIRED</span>`;
+              statusEl.innerHTML = `<span style="color:#ef4444;"> OFF / EXPIRED</span>`;
             }
             if (btnEnable) {
               btnEnable.style.display = 'inline-block';
@@ -6494,26 +6309,26 @@
 
         stagesContainer.innerHTML = stageDefs.map(def => {
           const s = stages[def.key] || { status: 'PENDING' };
-          let icon = '⚪';
+          let icon = '';
           let statusColor = '#94a3b8';
           let bgColor = '#0f172a';
           let borderCol = '#1e293b';
 
           if (s.status === 'LOADED' || s.status === 'PASSED' || s.status === 'PARSED' || s.status === 'VERIFIED' || s.status === 'ATTRIBUTED') {
-            icon = '✅';
+            icon = '';
             statusColor = '#22c55e';
             borderCol = 'rgba(34,197,94,0.3)';
           } else if (s.status === 'FAILED') {
-            icon = '❌';
+            icon = '';
             statusColor = '#ef4444';
             borderCol = 'rgba(239,68,68,0.4)';
             bgColor = 'rgba(239,68,68,0.06)';
           } else if (s.status === 'FLAGGED_CUSTOMER_SENDER' || s.status === 'FLAGGED_SUSPICIOUS' || s.status === 'SUSPICIOUS') {
-            icon = '⚠️';
+            icon = '️';
             statusColor = '#f59e0b';
             borderCol = 'rgba(245,158,11,0.4)';
           } else if (s.status === 'UNRESOLVED') {
-            icon = '❓';
+            icon = '';
             statusColor = '#cbd5e1';
           }
 
@@ -6605,7 +6420,7 @@
       } catch (e) {
         console.warn('fetchBannedUsers error:', e);
         if (tbody) {
-          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; color:#f87171; padding:1.5rem;">⚠️ Failed to load banned users: ${escapeHtml(e.message)}</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; color:#f87171; padding:1.5rem;">️ Failed to load banned users: ${escapeHtml(e.message)}</td></tr>`;
         }
       }
     }
@@ -6638,8 +6453,8 @@
           <td><span class="badge badge-info" style="font-size:0.7rem;">${escapeHtml(u.source || 'SMS')}</span></td>
           <td style="text-align:right;">
             <div style="display:inline-flex; gap:0.4rem;">
-              <button class="btn btn-secondary" style="padding:0.3rem 0.6rem; font-size:0.75rem;" onclick="viewBanDetails('${u.id}')">🔍 Details</button>
-              <button class="btn btn-success" style="padding:0.3rem 0.6rem; font-size:0.75rem; background:#059669; border-color:#059669;" onclick="promptUnbanCustomer('${u.id}', '${escapeHtml(u.name || '')}', '${escapeHtml(u.phone || u.mobileNumber || '')}')">🔓 Unban</button>
+              <button class="btn btn-secondary" style="padding:0.3rem 0.6rem; font-size:0.75rem;" onclick="viewBanDetails('${u.id}')"> Details</button>
+              <button class="btn btn-success" style="padding:0.3rem 0.6rem; font-size:0.75rem; background:#059669; border-color:#059669;" onclick="promptUnbanCustomer('${u.id}', '${escapeHtml(u.name || '')}', '${escapeHtml(u.phone || u.mobileNumber || '')}')"> Unban</button>
             </div>
           </td>
         </tr>
@@ -6688,7 +6503,7 @@
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
           <!-- 1. Customer Profile -->
           <div style="background:#020617; border:1px solid #1e293b; border-radius:8px; padding:1rem;">
-            <div style="font-weight:700; color:#38bdf8; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">👤 Customer Profile</div>
+            <div style="font-weight:700; color:#38bdf8; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;"> Customer Profile</div>
             <div style="display:grid; grid-template-columns:auto 1fr; gap:0.4rem 0.8rem; font-size:0.82rem;">
               <span style="color:#64748b;">Name:</span><strong style="color:#ffffff;">${escapeHtml(c.name || '-')}</strong>
               <span style="color:#64748b;">Phone:</span><span style="color:#38bdf8; font-family:monospace;">${escapeHtml(c.phone || '-')}</span>
@@ -6702,7 +6517,7 @@
 
           <!-- 2. Ban & Trigger Details -->
           <div style="background:#020617; border:1px solid #1e293b; border-radius:8px; padding:1rem;">
-            <div style="font-weight:700; color:#f87171; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">⚖️ Enforcement Attributes</div>
+            <div style="font-weight:700; color:#f87171; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">️ Enforcement Attributes</div>
             <div style="display:grid; grid-template-columns:auto 1fr; gap:0.4rem 0.8rem; font-size:0.82rem;">
               <span style="color:#64748b;">Ban Type:</span><span class="badge ${b.banType === 'AUTOMATIC' ? 'badge-danger' : 'badge-warning'}">${escapeHtml(b.banType)}</span>
               <span style="color:#64748b;">Trigger Event:</span><strong style="color:#f87171;">${escapeHtml(b.triggerEvent)}</strong>
@@ -6718,7 +6533,7 @@
         <div style="margin-bottom:1.25rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
             <div style="font-weight:700; color:#f87171; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.05em;">
-              📜 Verbatim Raw Message Evidence (Exact Word-For-Word Payload)
+              Verbatim Raw Message Evidence (Exact Word-For-Word Payload)
             </div>
             <span class="badge badge-danger" style="font-size:0.68rem;">UNTOUCHED RAW STRING</span>
           </div>
@@ -6732,7 +6547,7 @@
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
           <!-- Metadata -->
           <div style="background:#020617; border:1px solid #1e293b; border-radius:8px; padding:1rem;">
-            <div style="font-weight:700; color:#94a3b8; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">📡 Observation Metadata</div>
+            <div style="font-weight:700; color:#94a3b8; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;"> Observation Metadata</div>
             <div style="display:grid; grid-template-columns:auto 1fr; gap:0.4rem 0.8rem; font-size:0.82rem;">
               <span style="color:#64748b;">Source Channel:</span><strong style="color:#ffffff;">${escapeHtml(meta.source || 'SMS')}</strong>
               <span style="color:#64748b;">Sender Identity:</span><code style="color:#38bdf8;">${escapeHtml(meta.sender || '-')}</code>
@@ -6743,7 +6558,7 @@
 
           <!-- Discrepancy Analysis -->
           <div style="background:#020617; border:1px solid #1e293b; border-radius:8px; padding:1rem;">
-            <div style="font-weight:700; color:#fbbf24; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;">🔍 Discrepancy Forensic Audit</div>
+            <div style="font-weight:700; color:#fbbf24; font-size:0.85rem; margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.05em;"> Discrepancy Forensic Audit</div>
             <div style="display:grid; grid-template-columns:auto 1fr; gap:0.35rem 0.8rem; font-size:0.8rem;">
               <span style="color:#64748b;">Customer Phone:</span><span style="color:#38bdf8; font-family:monospace;">${escapeHtml(disc.customerPhone || '-')}</span>
               <span style="color:#64748b;">Sender Number:</span><span style="color:#f87171; font-family:monospace;">${escapeHtml(disc.observationSender || '-')}</span>
@@ -6766,7 +6581,7 @@
         </div>
       `;
       } catch (e) {
-        modalBody.innerHTML = `<div style="text-align:center; padding:2rem; color:#f87171;">⚠️ Error retrieving ban details: ${escapeHtml(e.message)}</div>`;
+        modalBody.innerHTML = `<div style="text-align:center; padding:2rem; color:#f87171;">️ Error retrieving ban details: ${escapeHtml(e.message)}</div>`;
       }
     }
 
@@ -6981,7 +6796,7 @@
         `;
         }).join('');
       } catch (e) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#f87171; padding:1.5rem;">⚠️ Failed to load events: ${escapeHtml(e.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#f87171; padding:1.5rem;">️ Failed to load events: ${escapeHtml(e.message)}</td></tr>`;
       }
     }
 
@@ -7023,7 +6838,7 @@
         `;
         }).join('');
       } catch (e) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#f87171; padding:1.5rem;">⚠️ Failed to load history: ${escapeHtml(e.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#f87171; padding:1.5rem;">️ Failed to load history: ${escapeHtml(e.message)}</td></tr>`;
       }
     }
 

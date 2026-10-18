@@ -26,7 +26,7 @@ export class DeviceRepository {
    * }} data
    */
   create(data) {
-    const id = data.id || `dev_${crypto.randomUUID()}`;
+    const id = data.id || `dev_${crypto.randomBytes(16).toString('hex')}`.slice(0, 36);
     const deviceToken = data.deviceToken || `devtok_${crypto.randomBytes(32).toString('hex')}`;
     const now = new Date().toISOString();
     const status = data.status || 'ACTIVE';
