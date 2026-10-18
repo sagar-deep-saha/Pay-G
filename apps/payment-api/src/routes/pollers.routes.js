@@ -4,10 +4,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { HttpServer } from '../server.js';
 import { ObservationNormalizer, BankSmsParser, BankEmailParser, generateQrSvg } from '@youpi/core';
-import { toRupeesString, toPaise, verifyHmac, resolveRuntimeUrls } from '@youpi/common';
+import { toRupeesString, toPaise, verifyHmac, resolveRuntimeUrls, resolveSecret, safeEqual, hasBearer, getObserverToken } from '@youpi/common';
+import { isAdminRequest } from '../auth-guard.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+/** Upper bound on a single bank notification body accepted by the verification pipeline. */
+const MAX_OBSERVATION_TEXT_CHARS = 64 * 1024;
 
 /**
  * Registers observation intake routes for SMS Gateway (Android Native Observer)
@@ -23,10 +27,17 @@ const __dirname = path.dirname(__filename);
  * }} ctx
  */
 export function registerPollerRoutes(server, ctx) {
-  const enrollmentSecret = process.env.ANDROID_ENROLLMENT_SECRET || 'android_pairing_enrollment_secret_key_32_chars';
+  // No public fallback: env value, else a random secret persisted in data/.secrets/.
+  const enrollmentSecret = resolveSecret('android_enrollment_secret', 'ANDROID_ENROLLMENT_SECRET');
 
   // GET /api/v1/pollers/active-window (Enables deep intelligent DOM scanning for active amounts and dual-layer verification)
   server.get('/api/v1/pollers/active-window', async (req, res) => {
+    // Observer-only. This returns every in-flight session with its exact amount and VPA,
+    // which is precisely the oracle needed to craft a matching synthetic bank observation.
+    if (!isAdminRequest(req) && !hasBearer(req, getObserverToken())) {
+      HttpServer.json(res, 401, { error: 'Unauthorized', code: 'AUTH_REQUIRED' });
+      return;
+    }
     const activeSessions = ctx.db.query(`
       SELECT id, order_id, receiving_account_id, amount_paise, status, verification_level, expires_at, processing_expires_at, completed_at
       FROM payment_sessions
@@ -66,6 +77,13 @@ export function registerPollerRoutes(server, ctx) {
     const rawText = body.rawText || body.text || body.message || body.sms || body.body || (typeof body.rawPayload === 'string' ? body.rawPayload : (body.rawPayload?.text || body.rawPayload?.body));
     const sender = body.sender || body.from || body.rawPayload?.sender || body.rawPayload?.from;
 
+    // Bank notifications are small. Reject oversized bodies outright so no single observation
+    // can be used to burn CPU or memory on the verification path.
+    if (typeof rawText === 'string' && rawText.length > MAX_OBSERVATION_TEXT_CHARS) {
+      HttpServer.json(res, 413, { error: `Observation body too large (max ${MAX_OBSERVATION_TEXT_CHARS} characters).` });
+      return;
+    }
+
     if (ctx.pipeline && rawText) {
       const pipeResult = ctx.pipeline.process({
         source: body.source,
@@ -73,8 +91,9 @@ export function registerPollerRoutes(server, ctx) {
         sender,
         receivingAccountId: body.receivingAccountId,
         paymentSessionId: body.paymentSessionId,
-        isTest: Boolean(body.isTest),
-        testModeActive: Boolean(body.testModeActive)
+        // Test flags relax verification: honour them only for the admin credential, never for observers.
+        isTest: Boolean(body.isTest) && isAdminRequest(req),
+        testModeActive: Boolean(body.testModeActive) && isAdminRequest(req)
       });
 
       if (pipeResult.status === 'REJECTED' && pipeResult.failingCondition === 'FRAUDULENT_PAYMENT_INJECTION') {
@@ -151,7 +170,7 @@ export function registerPollerRoutes(server, ctx) {
     const deviceModel = body.deviceModel || 'Android Device';
 
     // Verify enrollment token against system secret or merchant token
-    if (!token || (token !== enrollmentSecret && token !== `pair_${merchantId.slice(0, 8)}` && token !== 'youpi_sms_pair_token_secure')) {
+    if (!token || !safeEqual(String(token), enrollmentSecret)) {
       HttpServer.json(res, 401, { error: 'Invalid or expired device pairing enrollment token.' });
       return;
     }
@@ -231,11 +250,17 @@ export function registerPollerRoutes(server, ctx) {
       return;
     }
 
-    // Verify HMAC Signature & Replay Drift Protection if headers are present
+    // Verify HMAC Signature & Replay Drift Protection
     const timestampStr = req.headers['x-timestamp'];
     const signature = req.headers['x-signature'];
 
-    if (timestampStr && signature && device.signing_key_hash) {
+    // Signature is mandatory: omitting the headers must not skip verification.
+    if (!device.signing_key_hash || !timestampStr || !signature) {
+      HttpServer.json(res, 401, { error: 'Missing X-Timestamp / X-Signature headers.' });
+      return;
+    }
+
+    {
       const ts = Number(timestampStr);
       const now = Date.now();
       if (isNaN(ts) || Math.abs(now - ts) > 60000) {
@@ -296,7 +321,7 @@ export function registerPollerRoutes(server, ctx) {
         sender: body.sender || req.headers['x-sender'],
         receivingAccountId,
         paymentSessionId: body.paymentSessionId,
-        isTest: Boolean(body.isTest),
+        isTest: false, // device-supplied flags must never relax verification
         deviceInfo: device ? `${device.device_name} (${device.device_model})` : 'Android SMS Gateway'
       });
 

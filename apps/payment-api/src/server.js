@@ -1,12 +1,20 @@
 import http from 'node:http';
 import { URL } from 'node:url';
 
+/** Security headers applied to every response emitted by the gateway. */
+const BASE_SECURITY_HEADERS = Object.freeze({
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'SAMEORIGIN'
+});
+
 /**
  * Lightweight, high-performance HTTP router and server with native SSE and CORS.
  */
 export class HttpServer {
   constructor() {
     this.routes = [];
+    this.guards = [];
     this.sseClients = new Map(); // sessionId -> Set of res objects
   }
 
@@ -29,6 +37,15 @@ export class HttpServer {
       paramNames,
       handler
     });
+  }
+
+  /**
+   * Registers a guard that runs before routing. Return true when the guard has
+   * already answered the request (e.g. 401), so no route handler runs.
+   * @param {(req: any, res: any, pathname: string, url: URL) => boolean|Promise<boolean>} guard
+   */
+  use(guard) {
+    this.guards.push(guard);
   }
 
   get(pattern, handler) {
@@ -76,7 +93,8 @@ export class HttpServer {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      ...BASE_SECURITY_HEADERS
     });
 
     res.write('event: connected\ndata: {"status":"connected"}\n\n');
@@ -116,7 +134,8 @@ export class HttpServer {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, Idempotency-Key, X-Device-Id, X-Timestamp, X-Signature'
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, Idempotency-Key, X-Device-Id, X-Timestamp, X-Signature',
+      ...BASE_SECURITY_HEADERS
     });
     res.end(jsonStr);
   }
@@ -127,13 +146,18 @@ export class HttpServer {
   static async parseBody(req) {
     return new Promise((resolve, reject) => {
       let body = '';
+      let tooLarge = false;
       req.on('data', chunk => {
+        if (tooLarge) return;
         body += chunk;
         if (body.length > 2 * 1024 * 1024) { // 2MB limit
+          tooLarge = true;
+          body = '';
           reject(new Error('Payload Too Large'));
         }
       });
       req.on('end', () => {
+        if (tooLarge) return;
         if (!body.trim()) {
           resolve({});
           return;
@@ -158,15 +182,33 @@ export class HttpServer {
         res.writeHead(204, {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Idempotency-Key, X-Device-Id, X-Timestamp, X-Signature'
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Idempotency-Key, X-Device-Id, X-Timestamp, X-Signature',
+          ...BASE_SECURITY_HEADERS
         });
         res.end();
         return;
       }
 
-      const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+      let parsedUrl;
+      try {
+        // Fixed base: the Host header is attacker-controlled and can make URL parsing throw.
+        parsedUrl = new URL(req.url, 'http://localhost');
+      } catch {
+        HttpServer.json(res, 400, { error: 'Malformed request URL' });
+        return;
+      }
       const pathname = parsedUrl.pathname;
       const method = req.method.toUpperCase();
+
+      try {
+        for (const guard of this.guards) {
+          if (await guard(req, res, pathname, parsedUrl)) return;
+        }
+      } catch (err) {
+        console.error(`Guard Error [${method} ${pathname}]:`, err);
+        HttpServer.json(res, 500, { error: 'Internal Server Error' });
+        return;
+      }
 
       for (const route of this.routes) {
         if (route.method === method) {
@@ -182,8 +224,9 @@ export class HttpServer {
             try {
               await route.handler(req, res, params);
             } catch (err) {
+              // Log the detail server-side; never echo stack/SQL text to an anonymous caller.
               console.error(`Route Error [${method} ${pathname}]:`, err);
-              HttpServer.json(res, 500, { error: err.message || 'Internal Server Error' });
+              HttpServer.json(res, 500, { error: 'Internal Server Error' });
             }
             return;
           }

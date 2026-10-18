@@ -1,4 +1,5 @@
 export * from './enums.js';
+export * from './state-transitions.js';
 export * from './money.js';
 export * from './crypto.js';
 export * from './observation.js';
@@ -6,3 +7,5 @@ export * from './upi.js';
 export * from './upi-providers.js';
 export * from './contracts.js';
 export * from './runtime-config.js';
+export * from './secrets.js';
+export * from './tunnel-command.js';

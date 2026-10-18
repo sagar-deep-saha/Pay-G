@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { hasBearer, getObserverToken, getAdminToken, createOAuthState, consumeOAuthState, resolveGmailRedirectUri } from '@youpi/common';
 import { GmailPoller } from './gmail-poller.js';
 import { GmailBrowserAutomator } from './browser-automator.js';
 
@@ -45,7 +46,15 @@ export class GmailObserverServer {
       }
 
       // POST /stop
+      // This service is published publicly (Google must reach /oauth/callback), so stopping the
+      // poller must not be reachable by an anonymous caller: it silently disables the bank-email
+      // verification channel and prevents live payments from settling.
       if (pathname === '/stop' && method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         this.poller.stop();
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ success: true, message: 'Gmail poller stopped' }));
@@ -54,13 +63,21 @@ export class GmailObserverServer {
 
       // GET /oauth/url
       if (pathname === '/oauth/url') {
+        // The `state` minted here authorises a later callback, so only trusted callers may request it.
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized' }));
+          return;
+        }
         let clientId = '';
+        let configuredRedirectUri = '';
         const apiBase = (this.poller.apiBaseUrl && !this.poller.apiBaseUrl.includes('gauravtesting.online')) ? this.poller.apiBaseUrl : `http://127.0.0.1:${process.env.PAYMENT_API_PORT || 6100}`;
         try {
-          const credRes = await fetch(`${apiBase}/api/v1/admin/gmail/credentials`);
+          const credRes = await fetch(`${apiBase}/api/v1/admin/gmail/credentials`, { headers: { Authorization: `Bearer ${getObserverToken()}` } });
           if (credRes.ok) {
             const credData = await credRes.json();
             clientId = credData.clientId || credData.gmailConfig?.clientId || '';
+            configuredRedirectUri = credData.redirectUri || '';
           }
         } catch {}
 
@@ -70,9 +87,9 @@ export class GmailObserverServer {
             : (process.env.GMAIL_CLIENT_ID || 'mock-youpi-client-id.apps.googleusercontent.com');
         }
 
-        const finalRedirectUri = 'https://pay-gmail.gauravtesting.online/oauth/callback';
+        const finalRedirectUri = configuredRedirectUri || resolveGmailRedirectUri();
         const scope = encodeURIComponent('https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/userinfo.email');
-        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(finalRedirectUri)}&response_type=code&scope=${scope}&access_type=offline&prompt=consent&include_granted_scopes=true`;
+        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(finalRedirectUri)}&response_type=code&scope=${scope}&access_type=offline&prompt=consent&include_granted_scopes=true&state=${encodeURIComponent(createOAuthState())}`;
 
         res.writeHead(200, {
           'Content-Type': 'application/json',
@@ -87,9 +104,16 @@ export class GmailObserverServer {
         const code = url.searchParams.get('code');
         const error = url.searchParams.get('error');
 
+        // Reject callbacks that did not start from an authenticated admin action (login CSRF).
+        if (!consumeOAuthState(url.searchParams.get('state'))) {
+          res.writeHead(400, { 'Content-Type': 'text/html; charset=utf-8' });
+          res.end('<h1>Invalid or expired OAuth state</h1><p>Start the Google connection again from the Merchant Admin panel.</p>');
+          return;
+        }
+
         if (error) {
           res.writeHead(400, { 'Content-Type': 'text/html; charset=utf-8' });
-          res.end(`<h1>Google OAuth Authorization Error</h1><p>${error}</p>`);
+          res.end(`<h1>Google OAuth Authorization Error</h1><p>${String(error).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`)}</p>`);
           return;
         }
 
@@ -102,14 +126,16 @@ export class GmailObserverServer {
         try {
           let clientId = '';
           let clientSecret = '';
+          let callbackRedirectUri = '';
           const apiBase = (this.poller.apiBaseUrl && !this.poller.apiBaseUrl.includes('gauravtesting.online')) ? this.poller.apiBaseUrl : `http://127.0.0.1:${process.env.PAYMENT_API_PORT || 6100}`;
 
           try {
-            const credRes = await fetch(`${apiBase}/api/v1/admin/gmail/credentials`);
+            const credRes = await fetch(`${apiBase}/api/v1/admin/gmail/credentials`, { headers: { Authorization: `Bearer ${getObserverToken()}` } });
             if (credRes.ok) {
               const credData = await credRes.json();
               clientId = credData.clientId || credData.gmailConfig?.clientId || '';
               clientSecret = credData.clientSecret || credData.gmailConfig?.clientSecret || '';
+              callbackRedirectUri = credData.redirectUri || '';
             }
           } catch (e) {
             console.warn('[Gmail Observer] Failed to fetch credentials from Payment API:', e.message);
@@ -133,7 +159,7 @@ export class GmailObserverServer {
             return;
           }
 
-          const redirectUri = 'https://pay-gmail.gauravtesting.online/oauth/callback';
+          const redirectUri = callbackRedirectUri || resolveGmailRedirectUri();
           console.log(`[Gmail Observer] Exchanging OAuth code for tokens with Client ID: ${clientId.substring(0, 15)}... and Redirect URI: ${redirectUri}`);
 
           const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
@@ -183,7 +209,7 @@ export class GmailObserverServer {
           try {
             await fetch(`${apiBase}/api/v1/admin/gmail/credentials`, {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${getObserverToken()}` },
               body: JSON.stringify({
                 clientId,
                 clientSecret,
@@ -363,6 +389,11 @@ export class GmailObserverServer {
 
       // POST /api/browser/auto-ensure
       if (pathname === '/api/browser/auto-ensure' && method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           const result = await this.automator.autoEnsureConnection();
           res.writeHead(200, {
@@ -379,6 +410,11 @@ export class GmailObserverServer {
 
       // POST /api/browser/launch-login
       if (pathname === '/api/browser/launch-login' && req.method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           const result = this.automator.launchLoginWindow();
           res.writeHead(200, {
@@ -395,6 +431,11 @@ export class GmailObserverServer {
 
       // POST /api/sweep (Active sweep trigger during 30-second verification window)
       if (pathname === '/api/sweep' && req.method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           await Promise.allSettled([
             this.automator.pollInboxEmails().catch(() => {}),
@@ -411,6 +452,12 @@ export class GmailObserverServer {
 
       // POST /process-email (Direct email ingestion / test injection)
       if (pathname === '/process-email' && req.method === 'POST') {
+        // Direct ingestion feeds the payment pipeline: only the local operator/test tooling may call it.
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized' }));
+          return;
+        }
         let body = '';
         req.on('data', chunk => { body += chunk; });
         req.on('end', async () => {

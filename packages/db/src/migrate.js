@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
+import { getCoinStoreWebhookSecret, LEGACY_DEFAULT_WEBHOOK_SECRET } from '@youpi/common';
 import { getDatabase } from './database.js';
 import { MerchantRepository } from './repositories/merchant.repository.js';
 import { ReceivingAccountRepository } from './repositories/receiving-account.repository.js';
@@ -20,7 +21,8 @@ export function runMigrations(targetDb) {
     const schemaPath = path.join(__dirname, 'sqlite-schema.sql');
     const schemaSql = fs.readFileSync(schemaPath, 'utf8');
 
-    // Detect if customers table has obsolete schema (phone_number/merchant_id instead of email/mobile_number or password_hash NOT NULL)
+    // Detect if customers table has an obsolete schema (phone_number/merchant_id instead of email/mobile_number, or password_hash NOT NULL).
+    // The old table is only rebuilt when it holds no customers: a schema mismatch must never destroy customer data.
     try {
       const tableInfo = db.query ? db.query("PRAGMA table_info(customers)") : [];
       const colNames = (tableInfo || []).map(c => c.name);
@@ -32,18 +34,21 @@ export function runMigrations(targetDb) {
         tableInfo.some(c => c.name === 'password_hash' && c.notnull === 1)
       );
       if (hasOldColumns) {
-        try { db.exec("PRAGMA foreign_keys = OFF;"); } catch {}
-        try { db.exec("UPDATE payment_sessions SET customer_id = NULL WHERE customer_id IS NOT NULL;"); } catch {}
-        try { db.exec("DELETE FROM ticket_messages;"); } catch {}
-        try { db.exec("DELETE FROM support_tickets;"); } catch {}
-        try { db.exec("DROP TABLE IF EXISTS customer_sessions;"); } catch {}
-        try { db.exec("DROP TABLE IF EXISTS customers;"); } catch {}
-        try { db.exec("PRAGMA foreign_keys = ON;"); } catch {}
+        const customerCount = Number(db.queryOne ? db.queryOne('SELECT COUNT(*) AS n FROM customers')?.n : 0);
+        if (customerCount === 0) {
+          try { db.exec("PRAGMA foreign_keys = OFF;"); } catch {}
+          try { db.exec("UPDATE payment_sessions SET customer_id = NULL WHERE customer_id IS NOT NULL;"); } catch {}
+          try { db.exec("DELETE FROM ticket_messages;"); } catch {}
+          try { db.exec("DELETE FROM support_tickets;"); } catch {}
+          try { db.exec("DROP TABLE IF EXISTS customer_sessions;"); } catch {}
+          try { db.exec("DROP TABLE IF EXISTS customers;"); } catch {}
+          try { db.exec("PRAGMA foreign_keys = ON;"); } catch {}
+        } else {
+          console.error(`[migrate] customers table has an obsolete schema but holds ${customerCount} row(s); leaving it untouched. Back up and migrate it manually.`);
+        }
       }
-    } catch {
-      try { db.exec("PRAGMA foreign_keys = OFF;"); } catch {}
-      try { db.exec("DROP TABLE IF EXISTS customers;"); } catch {}
-      try { db.exec("PRAGMA foreign_keys = ON;"); } catch {}
+    } catch (err) {
+      console.error('[migrate] Could not inspect customers table schema; skipping rebuild:', err.message);
     }
 
     // Fallback alter columns if customers/sessions table exists without new columns
@@ -51,6 +56,7 @@ export function runMigrations(targetDb) {
     try { db.exec("ALTER TABLE customers ADD COLUMN mobile_number TEXT;"); } catch {}
     try { db.exec("ALTER TABLE customers ADD COLUMN otp_code TEXT;"); } catch {}
     try { db.exec("ALTER TABLE customers ADD COLUMN otp_expires_at TEXT;"); } catch {}
+    try { db.exec("ALTER TABLE customers ADD COLUMN otp_attempts INTEGER NOT NULL DEFAULT 0;"); } catch {}
     try { db.exec("ALTER TABLE customers ADD COLUMN is_phone_verified INTEGER DEFAULT 0;"); } catch {}
     try { db.exec("ALTER TABLE customers ADD COLUMN ban_reason TEXT;"); } catch {}
     try { db.exec("ALTER TABLE customers ADD COLUMN banned_at TEXT;"); } catch {}
@@ -105,7 +111,6 @@ export function runMigrations(targetDb) {
     try { db.exec("CREATE INDEX IF NOT EXISTS idx_devices_token ON devices (device_token);"); } catch {}
     try { db.exec("CREATE INDEX IF NOT EXISTS idx_payment_sessions_device ON payment_sessions (device_id);"); } catch {}
   }
-
   // Seed default merchant if empty
   const merchantRepo = new MerchantRepository(db);
   const existing = merchantRepo.findAll();
@@ -119,7 +124,7 @@ export function runMigrations(targetDb) {
       contactEmail: 'merchant@youpi.local',
       contactPhone: '9876543210',
       webhookUrl: process.env.COIN_STORE_WEBHOOK_URL || 'http://localhost:5000/api/webhook',
-      webhookSecret: process.env.COIN_STORE_WEBHOOK_SECRET || 'merchant_webhook_secret_for_wallet_store',
+      webhookSecret: getCoinStoreWebhookSecret(),
       branding: {
         appName: process.env.DEFAULT_APP_NAME || 'PayGate',
         primaryColor: '#2563eb',
@@ -131,8 +136,12 @@ export function runMigrations(targetDb) {
     if (!defaultMerchant.webhookSecret) {
       merchantRepo.update(defaultMerchant.id, {
         webhookUrl: 'http://localhost:5000/api/webhook',
-        webhookSecret: 'merchant_webhook_secret_for_wallet_store'
+        webhookSecret: getCoinStoreWebhookSecret()
       });
+    } else if (defaultMerchant.webhookSecret === LEGACY_DEFAULT_WEBHOOK_SECRET) {
+      // Older installs were seeded with a publicly known secret: rotate it.
+      merchantRepo.update(defaultMerchant.id, { webhookSecret: getCoinStoreWebhookSecret() });
+      console.warn('[migrate] Rotated the default merchant webhook secret away from the legacy public value. Update your merchant webhook verifier.');
     }
   }
 
@@ -149,17 +158,22 @@ export function runMigrations(targetDb) {
     });
   }
 
-  // Seed default customer if none exists
-  const customerRepo = new CustomerRepository(db);
-  const existingCust = customerRepo.findByMobile('9212339720');
-  if (!existingCust) {
-    customerRepo.create({
-      id: '00000000-0000-0000-0000-000000000002',
-      name: 'Gaurav Mehra',
-      email: 'gauravmehra09876@gmail.com',
-      mobileNumber: '9212339720',
-      isPhoneVerified: true
-    });
+  // Demo customer seeding is opt-in and never carries real personal data.
+  // Previously this unconditionally created a customer with a real name, phone number and
+  // email, and flagged the phone as verified — shipping someone's PII (and a pre-authorised
+  // OTP login identity) into every merchant deployment.
+  if (process.env.YOUPI_SEED_DEMO_CUSTOMER === 'true') {
+    const customerRepo = new CustomerRepository(db);
+    const demoMobile = '9000000000';
+    if (!customerRepo.findByMobile(demoMobile)) {
+      customerRepo.create({
+        id: '00000000-0000-0000-0000-000000000002',
+        name: 'Demo Customer',
+        email: 'demo-customer@youpi.local',
+        mobileNumber: demoMobile,
+        isPhoneVerified: false
+      });
+    }
   }
 
   return {

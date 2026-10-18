@@ -1,5 +1,6 @@
 import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import http from 'node:http';
 import { Database } from '@youpi/db';
 import { startServer as startPaymentApi } from '../../../payment-api/src/index.js';
@@ -32,6 +33,16 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
 
     storeBaseUrl = `http://localhost:${storeInstance.port}`;
   });
+
+  /** Headers the real gateway always sends with every signed delivery. */
+  function gatewayHeaders(payloadString, overrides = {}) {
+    return {
+      'X-Gateway-Signature': `sha256=${generateHmac(payloadString, storeSecret)}`,
+      'X-Gateway-Delivery-Id': crypto.randomUUID(),
+      'X-Gateway-Timestamp': Date.now().toString(),
+      ...overrides
+    };
+  }
 
   after(async () => {
     await storeInstance.close();
@@ -120,13 +131,10 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
     };
 
     const payloadString = JSON.stringify(payloadObj);
-    const signature = generateHmac(payloadString, storeSecret);
 
     const hookRes = await request('/api/webhook', {
       method: 'POST',
-      headers: {
-        'X-Gateway-Signature': `sha256=${signature}`
-      },
+      headers: gatewayHeaders(payloadString),
       body: payloadString
     });
 
@@ -147,14 +155,12 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
     const payloadString = JSON.stringify({ event: 'SUCCESS', orderId: 'FAKE' });
     const hookRes = await request('/api/webhook', {
       method: 'POST',
-      headers: {
-        'X-Gateway-Signature': 'sha256=invalid_fake_signature_hash'
-      },
+      headers: gatewayHeaders(payloadString, { 'X-Gateway-Signature': 'sha256=invalid_fake_signature_hash' }),
       body: payloadString
     });
 
-    assert.equal(hookRes.status, 400);
-    assert.ok(hookRes.body.error.includes('signature mismatch'));
+    assert.equal(hookRes.status, 401);
+    assert.ok(hookRes.body.error.includes('signature'));
   });
 
   test('GET /wallet renders wallet page with updated balance', async () => {
@@ -201,11 +207,10 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
     };
 
     const payloadString = JSON.stringify(payloadObj);
-    const signature = generateHmac(payloadString, storeSecret);
 
     const hookRes = await request('/api/webhook', {
       method: 'POST',
-      headers: { 'X-Gateway-Signature': `sha256=${signature}` },
+      headers: gatewayHeaders(payloadString),
       body: payloadString
     });
 
@@ -240,11 +245,10 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
       metadata: { coins: 1, packName: 'Micro Top-Up' }
     };
     const payloadString = JSON.stringify(payloadObj);
-    const signature = generateHmac(payloadString, storeSecret);
 
     const hookRes = await request('/api/webhook', {
       method: 'POST',
-      headers: { 'X-Gateway-Signature': `sha256=${signature}` },
+      headers: gatewayHeaders(payloadString),
       body: payloadString
     });
 
@@ -275,37 +279,45 @@ describe('Coin Top-Up Wallet Demo Store Integration Tests', () => {
     assert.ok(res.body.includes('Try Again'));
   });
 
-  test('POST /api/verify-payment credits coins directly from popup drawer and prevents duplicates', async () => {
-    const initialCoins = storeInstance.server.walletCoins;
-    const orderId = `COIN-ORD-POPUP-${Date.now()}`;
+  test('POST /api/verify-payment refuses to credit unknown orders and unpaid payments', async () => {
+    const before = storeInstance.server.walletCoins;
 
-    // 1. Initial verification call
+    const unknown = await request('/api/verify-payment', {
+      method: 'POST',
+      body: { orderId: 'COIN-ORD-FORGED', coins: 999999, paymentId: 'x' }
+    });
+    assert.equal(unknown.status, 404);
+
+    const checkout = await request('/api/checkout', { method: 'POST', body: { price: 100, coins: 100, packName: 'Starter Pack' } });
+    assert.equal(checkout.status, 200);
+    const unpaid = await request('/api/verify-payment', {
+      method: 'POST',
+      body: { orderId: checkout.body.orderId, coins: 999999 }
+    });
+    assert.equal(unpaid.status, 402);
+    assert.equal(storeInstance.server.walletCoins, before);
+  });
+
+  test('POST /api/verify-payment credits coins only after the gateway reports SUCCESS, and is idempotent', async () => {
+    const initialCoins = storeInstance.server.walletCoins;
+    const checkout = await request('/api/checkout', { method: 'POST', body: { price: 100, coins: 100, packName: 'Starter Pack' } });
+    assert.equal(checkout.status, 200);
+    const { orderId, paymentId } = checkout.body;
+
+    // Simulate the gateway verification engine completing this UPI payment.
+    testDb.execute("UPDATE payment_sessions SET status = 'SUCCESS', method = 'UPI' WHERE id = ?", [paymentId]);
+
     const verifyRes = await request('/api/verify-payment', {
       method: 'POST',
-      body: {
-        orderId,
-        coins: 100,
-        packName: 'Starter Pack'
-      }
+      body: { orderId, coins: 999999, packName: 'Ignored' }
     });
-
     assert.equal(verifyRes.status, 200);
     assert.equal(verifyRes.body.success, true);
-    assert.equal(verifyRes.body.coins, initialCoins + 100);
+    // Client-supplied coin counts are ignored: the gateway session metadata wins.
     assert.equal(storeInstance.server.walletCoins, initialCoins + 100);
 
-    // 2. Duplicate call must be idempotent
-    const dupRes = await request('/api/verify-payment', {
-      method: 'POST',
-      body: {
-        orderId,
-        coins: 100,
-        packName: 'Starter Pack'
-      }
-    });
-
+    const dupRes = await request('/api/verify-payment', { method: 'POST', body: { orderId } });
     assert.equal(dupRes.status, 200);
-    assert.equal(dupRes.body.success, true);
     assert.equal(dupRes.body.message, 'Already credited');
     assert.equal(storeInstance.server.walletCoins, initialCoins + 100);
   });

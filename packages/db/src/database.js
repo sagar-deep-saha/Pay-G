@@ -89,9 +89,14 @@ export class Database {
       }
       const dir = path.dirname(dbPath);
       if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
+        fs.mkdirSync(dir, { recursive: true, mode: 0o700 });
       }
       this.db = new DatabaseSync(dbPath);
+      // The file holds webhook secrets, session-token indexes, OTPs and customer PII.
+      // Default file creation honours umask, which on many hosts leaves it group/world
+      // readable, so restrict it explicitly.
+      try { fs.chmodSync(dbPath, 0o600); } catch {}
+      try { fs.chmodSync(dir, 0o700); } catch {}
     }
 
     this.db.exec('PRAGMA foreign_keys = ON;');
@@ -241,12 +246,14 @@ export class Database {
   /**
    * Executes a callback within an ACID database transaction.
    * Automatically rolls back on exception.
-   * @template T
    * @param {() => T} callback
    * @returns {T}
    */
   transaction(callback) {
-    const beginSql = this.client === 'sqlite' ? 'BEGIN TRANSACTION;' : 'START TRANSACTION;';
+    // IMMEDIATE (not DEFERRED) so the write lock is taken up front in SQLite. A deferred transaction
+    // starts as a read transaction and only upgrades on first write, which lets two
+    // concurrent slot-acquisition callers both observe a free slot before either writes.
+    const beginSql = this.client === 'sqlite' ? 'BEGIN IMMEDIATE;' : 'START TRANSACTION;';
     this.exec(beginSql);
     try {
       const result = callback();

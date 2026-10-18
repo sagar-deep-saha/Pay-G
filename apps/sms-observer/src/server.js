@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { hasBearer, getObserverToken, getAdminToken } from '@youpi/common';
 import { SmsObserverService } from './sms-service.js';
 import { GoogleMessagesAutomator } from './browser-automator.js';
 
@@ -60,6 +61,11 @@ export class SmsObserverServer {
 
       // POST /api/browser/auto-ensure
       if (pathname === '/api/browser/auto-ensure' && method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           const result = await this.automator.autoEnsureConnection();
           res.writeHead(200, {
@@ -76,6 +82,11 @@ export class SmsObserverServer {
 
       // POST /api/browser/launch-pairing
       if (pathname === '/api/browser/launch-pairing' && req.method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           const result = this.automator.launchPairingWindow();
           res.writeHead(200, {
@@ -92,6 +103,11 @@ export class SmsObserverServer {
 
       // POST /api/sweep (Active sweep trigger during 30-second verification window)
       if (pathname === '/api/sweep' && method === 'POST') {
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized', code: 'AUTH_REQUIRED' }));
+          return;
+        }
         try {
           await this.automator.pollRecentMessages();
           res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
@@ -105,6 +121,12 @@ export class SmsObserverServer {
 
       // POST /process-sms (Direct SMS intake / Google Messages Web bridge)
       if (pathname === '/process-sms' && req.method === 'POST') {
+        // Direct ingestion feeds the payment pipeline: only the local operator/test tooling may call it.
+        if (!hasBearer(req, getObserverToken(), getAdminToken())) {
+          res.writeHead(401, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Unauthorized' }));
+          return;
+        }
         let body = '';
         req.on('data', chunk => { body += chunk; });
         req.on('end', async () => {
